@@ -1,0 +1,37 @@
+# Push a tag matching the <version> in pom.xml ("v0.1.0") to publish com.hermeticacomms:hermetica-java to Maven Central.
+# Maven Central has no OIDC trusted publishing, so this uses repo secrets. One-time setup:
+# 1. On central.sonatype.com verify the namespace com.hermeticacomms and generate a Portal user token.
+# 2. Create a GPG signing key and publish its public key (gpg --keyserver keys.openpgp.org --send-keys <id>).
+# 3. Add repo secrets: CENTRAL_TOKEN_USERNAME and CENTRAL_TOKEN_PASSWORD (the Portal token), MAVEN_GPG_PRIVATE_KEY
+#    (gpg --armor --export-secret-keys <id>) and MAVEN_GPG_PASSPHRASE. Optionally scope them to the environment maven-central.
+name: release
+on:
+  push: { tags: ['v*'] }
+permissions: { contents: read }
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: maven-central
+    permissions: { contents: write, id-token: write, attestations: write }
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          server-id: central
+          server-username: MAVEN_USERNAME
+          server-password: MAVEN_PASSWORD
+          gpg-private-key: '${{ secrets.MAVEN_GPG_PRIVATE_KEY }}'
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+      - run: test "v$(mvn -B -q help:evaluate -Dexpression=project.version -DforceStdout)" = "$GITHUB_REF_NAME"
+      - run: mvn -B -ntp -P release deploy # tests, signs, uploads to the Central Portal and waits until published
+        env:
+          MAVEN_USERNAME: '${{ secrets.CENTRAL_TOKEN_USERNAME }}'
+          MAVEN_PASSWORD: '${{ secrets.CENTRAL_TOKEN_PASSWORD }}'
+          MAVEN_GPG_PASSPHRASE: '${{ secrets.MAVEN_GPG_PASSPHRASE }}'
+      - uses: actions/attest-build-provenance@v3
+        with: { subject-path: 'target/hermetica-java-*.jar' }
+      - run: gh release create "$GITHUB_REF_NAME" target/hermetica-java-*.jar target/hermetica-java-*.asc --repo "$GITHUB_REPOSITORY" --generate-notes
+        env: { GH_TOKEN: '${{ github.token }}' }
