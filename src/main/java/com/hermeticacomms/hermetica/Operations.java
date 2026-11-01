@@ -19665,6 +19665,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/integrations/connections/{id}/declarative/webhook-secret - Save the signing secret the vendor shows only after it verified the webhook URL (e.g. Clover X-Clover-Auth); it is never returned
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1IntegrationsConnectionsByIdDeclarativeWebhookSecret(Params params) {
+        return request("PUT", "/v1/integrations/connections/{id}/declarative/webhook-secret", params);
+    }
+
+    /**
      * PUT /v1/integrations/secrets/{name} - Create or replace a secret
      *
      * @param params path, query, body and idempotency key; may be null
