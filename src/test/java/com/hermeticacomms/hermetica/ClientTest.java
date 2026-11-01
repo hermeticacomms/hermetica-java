@@ -58,6 +58,7 @@ class ClientTest {
                 answer = answers.poll();
             }
             byte[] out = ((String) answer[1]).getBytes(StandardCharsets.UTF_8);
+            if (answer.length > 2) ex.getResponseHeaders().add("Retry-After", (String) answer[2]);
             ex.sendResponseHeaders((Integer) answer[0], out.length == 0 ? -1 : out.length);
             if (out.length > 0) {
                 try (OutputStream os = ex.getResponseBody()) {
@@ -79,9 +80,17 @@ class ClientTest {
         answers.add(new Object[] {status, body});
     }
 
+    private void answer(int status, String body, String retryAfter) {
+        answers.add(new Object[] {status, body, retryAfter});
+    }
+
     private Client client(String workspaceId) {
+        return client(workspaceId, 3);
+    }
+
+    private Client client(String workspaceId, int maxRetries) {
         HttpClient http = HttpClient.newBuilder().version(HttpClient.Version.HTTP_1_1).build();
-        return new Client("hm_sk_test", base, workspaceId, Duration.ofSeconds(10), http);
+        return new Client("hm_sk_test", base, workspaceId, Duration.ofSeconds(10), http, maxRetries);
     }
 
     @Test
@@ -135,11 +144,61 @@ class ClientTest {
     @Test
     void nonJsonErrorFallsBackToHttpError() {
         answer(502, "Bad gateway");
-        HermeticaException e = assertThrows(HermeticaException.class, () -> client(null).request("DELETE", "/v1/x", null));
+        HermeticaException e = assertThrows(HermeticaException.class, () -> client(null, 0).request("DELETE", "/v1/x", null));
         assertEquals(502, e.status);
         assertEquals("http_error", e.code);
         assertEquals("Bad gateway", e.errorMessage);
         assertNull(e.details);
+    }
+
+    @Test
+    void retriesWithTheSameIdempotencyKey() {
+        answer(503, "", "0");
+        answer(429, "", "0");
+        answer(200, "{\"ok\":true}");
+        assertEquals(Map.of("ok", true), client(null).request("POST", "/v1/x", new Params().body(Map.of("a", 1))));
+        assertEquals(3, seen.size());
+        String key = seen.get(0).headers.getFirst("Idempotency-Key");
+        assertTrue(key != null && !key.isEmpty());
+        for (Seen s : seen) {
+            assertEquals(key, s.headers.getFirst("Idempotency-Key"));
+            assertEquals("{\"a\":1}", s.body);
+        }
+    }
+
+    @Test
+    void givesUpAfterMaxRetries() {
+        answer(502, "a", "0");
+        answer(502, "b", "0");
+        HermeticaException e = assertThrows(HermeticaException.class, () -> client(null, 1).request("GET", "/v1/x", null));
+        assertEquals(502, e.status);
+        assertEquals("b", e.errorMessage);
+        assertEquals(2, seen.size());
+    }
+
+    @Test
+    void doesNotRetry4xx() {
+        answer(404, "{}");
+        assertThrows(HermeticaException.class, () -> client(null).request("GET", "/v1/x", null));
+        assertEquals(1, seen.size());
+    }
+
+    @Test
+    void networkErrorsAreRetriedThenThrown() {
+        // nothing listens on port 1: every attempt fails to connect
+        Client c = new Client("hm_sk_test", "http://127.0.0.1:1", null, Duration.ofSeconds(5), null, 1);
+        assertThrows(java.io.UncheckedIOException.class, () -> c.request("GET", "/v1/x", null));
+    }
+
+    @Test
+    void parsesRetryAfter() {
+        assertEquals(2000L, Client.retryAfterMillis("2", 0));
+        assertEquals(0L, Client.retryAfterMillis("-1", 0));
+        assertEquals(5000L, Client.retryAfterMillis("Thu, 1 Jan 1970 00:00:05 GMT", 0));
+        assertEquals(0L, Client.retryAfterMillis("Thu, 1 Jan 1970 00:00:05 GMT", 60000));
+        assertNull(Client.retryAfterMillis("soon", 0));
+        assertNull(Client.retryAfterMillis(null, 0));
+        for (int i = 0; i < 20; i++) assertTrue(Client.backoffMillis(i) < 8000L);
     }
 
     @Test

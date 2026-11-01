@@ -9,11 +9,15 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 import java.util.UUID;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -27,6 +31,7 @@ public class Client extends Operations {
     private final String workspaceId;
     private final Duration timeout;
     private final HttpClient http;
+    private final int maxRetries;
 
     /** @param apiKey API key, sent as a Bearer token */
     public Client(String apiKey) {
@@ -46,6 +51,19 @@ public class Client extends Operations {
      * @param http the HttpClient to use, or null for a default one
      */
     public Client(String apiKey, String baseUrl, String workspaceId, Duration timeout, HttpClient http) {
+        this(apiKey, baseUrl, workspaceId, timeout, http, 3);
+    }
+
+    /**
+     * @param apiKey API key, sent as a Bearer token
+     * @param baseUrl API origin, e.g. https://api.example.com
+     * @param workspaceId sent as X-Workspace-Id when not null
+     * @param timeout per-request timeout
+     * @param http the HttpClient to use, or null for a default one
+     * @param maxRetries how many times a network error, 429 or 5xx is retried after the first attempt (default 3; 0 turns retries off)
+     */
+    public Client(String apiKey, String baseUrl, String workspaceId, Duration timeout, HttpClient http, int maxRetries) {
+        this.maxRetries = maxRetries;
         this.apiKey = apiKey;
         this.baseUrl = baseUrl.replaceAll("/+$", "");
         this.workspaceId = workspaceId;
@@ -83,18 +101,59 @@ public class Client extends Operations {
             String key = p.idempotencyKey == null || p.idempotencyKey.isEmpty() ? UUID.randomUUID().toString() : p.idempotencyKey;
             req.header("Idempotency-Key", key); // a retry with the same key never repeats the action
         }
-        HttpResponse<String> res;
-        try {
-            res = http.send(req.method(method, body).build(), HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-            throw new UncheckedIOException(new java.io.InterruptedIOException("request interrupted"));
+        HttpRequest built = req.method(method, body).build();
+        // Every call is safe to replay: a GET, or a non-GET carrying the same Idempotency-Key on every attempt.
+        for (int attempt = 0; ; attempt++) {
+            HttpResponse<String> res;
+            try {
+                res = http.send(built, HttpResponse.BodyHandlers.ofString(StandardCharsets.UTF_8));
+            } catch (IOException e) {
+                if (attempt >= maxRetries) throw new UncheckedIOException(e);
+                pause(backoffMillis(attempt));
+                continue;
+            } catch (InterruptedException e) {
+                throw interrupted();
+            }
+            int status = res.statusCode();
+            if ((status == 429 || status >= 500) && attempt < maxRetries) {
+                Long wait = retryAfterMillis(res.headers().firstValue("Retry-After").orElse(null), System.currentTimeMillis());
+                pause(wait != null ? wait : backoffMillis(attempt));
+                continue;
+            }
+            String text = res.body() == null ? "" : res.body();
+            if (status >= 300) throw errorFor(status, text);
+            return text.isEmpty() ? null : Json.parse(text);
         }
-        String text = res.body() == null ? "" : res.body();
-        if (res.statusCode() >= 300) throw errorFor(res.statusCode(), text);
-        return text.isEmpty() ? null : Json.parse(text);
+    }
+
+    /** Full jitter: a random wait up to 250 ms * 2^attempt, capped at 8 s. */
+    static long backoffMillis(int attempt) {
+        return ThreadLocalRandom.current().nextLong(Math.min(8000L, 250L << Math.min(attempt, 10)));
+    }
+
+    /** Retry-After as delta-seconds or an HTTP date, in ms; null when absent or unparseable. */
+    static Long retryAfterMillis(String value, long nowMillis) {
+        if (value == null || value.trim().isEmpty()) return null;
+        String v = value.trim();
+        if (v.matches("-?[0-9]+(\\.[0-9]+)?")) return Math.max(0L, (long) (Double.parseDouble(v) * 1000));
+        try {
+            return Math.max(0L, ZonedDateTime.parse(v, DateTimeFormatter.RFC_1123_DATE_TIME).toInstant().toEpochMilli() - nowMillis);
+        } catch (DateTimeParseException e) {
+            return null;
+        }
+    }
+
+    private static void pause(long millis) {
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw interrupted();
+        }
+    }
+
+    private static UncheckedIOException interrupted() {
+        Thread.currentThread().interrupt();
+        return new UncheckedIOException(new java.io.InterruptedIOException("request interrupted"));
     }
 
     /**

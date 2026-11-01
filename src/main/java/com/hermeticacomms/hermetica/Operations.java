@@ -4885,6 +4885,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/compliance/gpc - Whether a browser Global Privacy Control / Do Not Track signal counts as a tracking opt-out (default on)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ComplianceGpc(Params params) {
+        return request("GET", "/v1/compliance/gpc", params);
+    }
+
+    /**
      * GET /v1/compliance/orphan-purge - Days after which a contact with no list, message or consent history is erased (null = never)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8412,6 +8422,16 @@ public abstract class Operations {
      */
     public Object getV1ProfilesByIdPgpKey(Params params) {
         return request("GET", "/v1/profiles/{id}/pgp-key", params);
+    }
+
+    /**
+     * GET /v1/profiles/{id}/predicted-gender - Gender inferred from the first name (likely_female, likely_male or uncertain); an inference, not a stored fact
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ProfilesByIdPredictedGender(Params params) {
+        return request("GET", "/v1/profiles/{id}/predicted-gender", params);
     }
 
     /**
@@ -19482,6 +19502,16 @@ public abstract class Operations {
      */
     public Object putV1CommerceStoresByStoreIdProductsByProductIdVariantsByVariantId(Params params) {
         return request("PUT", "/v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId}", params);
+    }
+
+    /**
+     * PUT /v1/compliance/gpc
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1ComplianceGpc(Params params) {
+        return request("PUT", "/v1/compliance/gpc", params);
     }
 
     /**
