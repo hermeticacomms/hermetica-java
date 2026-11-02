@@ -1,6 +1,6 @@
 # Hermetica Java client
 
-Generated from the Hermetica OpenAPI spec (2042 operations). Java 11+, no dependencies (java.net.http and a small built-in JSON codec).
+Generated from the Hermetica OpenAPI spec (2524 operations). Java 11+, no dependencies (java.net.http and a small built-in JSON codec).
 
 ## Install
 

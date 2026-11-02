@@ -25,8 +25,8 @@ jobs:
           server-password: MAVEN_PASSWORD
           gpg-private-key: '${{ secrets.MAVEN_GPG_PRIVATE_KEY }}'
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-      - run: test "v$(mvn -B -q help:evaluate -Dexpression=project.version -DforceStdout)" = "$GITHUB_REF_NAME"
-      - run: mvn -B -ntp -P release deploy # tests, signs, uploads to the Central Portal and waits until published
+      - run: test "v$(./mvnw -B -q help:evaluate -Dexpression=project.version -DforceStdout)" = "$GITHUB_REF_NAME"
+      - run: ./mvnw -B -ntp -P release deploy # tests, signs, uploads to the Central Portal and waits until published
         env:
           MAVEN_USERNAME: '${{ secrets.CENTRAL_TOKEN_USERNAME }}'
           MAVEN_PASSWORD: '${{ secrets.CENTRAL_TOKEN_PASSWORD }}'

@@ -15,6 +15,26 @@ public abstract class Operations {
     public abstract Object request(String method, String path, Params params);
 
     /**
+     * DELETE /hub/{ws}/api/wishlist/{productId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteHubByWsApiWishlistByProductId(Params params) {
+        return request("DELETE", "/hub/{ws}/api/wishlist/{productId}", params);
+    }
+
+    /**
+     * DELETE /mcp - Not offered: the hosted MCP server is stateless (POST only).
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteMcp(Params params) {
+        return request("DELETE", "/mcp", params);
+    }
+
+    /**
      * DELETE /p/n/{ref}/p/{slug}/highlights/{id} - Remove one of the reader's own highlights
      *
      * @param params path, query, body and idempotency key; may be null
@@ -65,6 +85,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/ads/lead-syncs/{id} - Stop syncing a lead-ad form
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1AdsLeadSyncsById(Params params) {
+        return request("DELETE", "/v1/ads/lead-syncs/{id}", params);
+    }
+
+    /**
      * DELETE /v1/ad-spend - Remove imported spend for a platform and date range
      *
      * @param params path, query, body and idempotency key; may be null
@@ -92,6 +122,26 @@ public abstract class Operations {
      */
     public Object deleteV1AgencyMembersByUserId(Params params) {
         return request("DELETE", "/v1/agency/members/{userId}", params);
+    }
+
+    /**
+     * DELETE /v1/ai-agents/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1AiAgentsById(Params params) {
+        return request("DELETE", "/v1/ai-agents/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/ai-agents/{id}/guidances/{guidanceId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1AiAgentsByIdGuidancesByGuidanceId(Params params) {
+        return request("DELETE", "/v1/ai-agents/{id}/guidances/{guidanceId}", params);
     }
 
     /**
@@ -195,6 +245,26 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/association-labels/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1AssociationLabelsById(Params params) {
+        return request("DELETE", "/v1/association-labels/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/associations/{fromType}/{fromId}/{toType}/{toId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1AssociationsByFromTypeByFromIdByToTypeByToId(Params params) {
+        return request("DELETE", "/v1/associations/{fromType}/{fromId}/{toType}/{toId}", params);
+    }
+
+    /**
      * DELETE /v1/attributes/computed/{key}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -252,6 +322,16 @@ public abstract class Operations {
      */
     public Object deleteV1AuthorizedAppsByClientId(Params params) {
         return request("DELETE", "/v1/authorized-apps/{clientId}", params);
+    }
+
+    /**
+     * DELETE /v1/batches/{id} - Cancel: calls not yet run are skipped (one already in flight completes)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1BatchesById(Params params) {
+        return request("DELETE", "/v1/batches/{id}", params);
     }
 
     /**
@@ -315,6 +395,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/calendar-feeds/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1CalendarFeedsById(Params params) {
+        return request("DELETE", "/v1/calendar-feeds/{id}", params);
+    }
+
+    /**
      * DELETE /v1/calendar/mine/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -355,6 +445,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/campaigns/{id}/audiences/{audienceId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1CampaignsByIdAudiencesByAudienceId(Params params) {
+        return request("DELETE", "/v1/campaigns/{id}/audiences/{audienceId}", params);
+    }
+
+    /**
      * DELETE /v1/campaigns/{id}/feedback/{feedbackId}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -372,6 +472,16 @@ public abstract class Operations {
      */
     public Object deleteV1CampaignsByIdMessagesByMessageId(Params params) {
         return request("DELETE", "/v1/campaigns/{id}/messages/{messageId}", params);
+    }
+
+    /**
+     * DELETE /v1/campaigns/{id}/messages/{messageId}/variants/{key}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1CampaignsByIdMessagesByMessageIdVariantsByKey(Params params) {
+        return request("DELETE", "/v1/campaigns/{id}/messages/{messageId}/variants/{key}", params);
     }
 
     /**
@@ -575,6 +685,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/content-slots/pushes/{id} - Withdraw pushed content (the slot falls back to its rules)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1ContentSlotsPushesById(Params params) {
+        return request("DELETE", "/v1/content-slots/pushes/{id}", params);
+    }
+
+    /**
      * DELETE /v1/coupon-pools/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -695,6 +815,26 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/destinations/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1DestinationsById(Params params) {
+        return request("DELETE", "/v1/destinations/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/do-not-contact/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1DoNotContactById(Params params) {
+        return request("DELETE", "/v1/do-not-contact/{id}", params);
+    }
+
+    /**
      * DELETE /v1/event-definitions/{name} - Remove the declaration only; stored events stay
      *
      * @param params path, query, body and idempotency key; may be null
@@ -722,6 +862,16 @@ public abstract class Operations {
      */
     public Object deleteV1FormsById(Params params) {
         return request("DELETE", "/v1/forms/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/forms/{id}/submissions/{submissionId} - Delete one submission (the consent records it created stay as proof)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1FormsByIdSubmissionsBySubmissionId(Params params) {
+        return request("DELETE", "/v1/forms/{id}/submissions/{submissionId}", params);
     }
 
     /**
@@ -785,6 +935,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/in-app-components/{id} - Delete a component
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1InAppComponentsById(Params params) {
+        return request("DELETE", "/v1/in-app-components/{id}", params);
+    }
+
+    /**
      * DELETE /v1/in-app-messages/{id} - Delete an in-app message and its events
      *
      * @param params path, query, body and idempotency key; may be null
@@ -815,6 +975,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/inbox-messages/{id} - Withdraw an inbox message
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1InboxMessagesById(Params params) {
+        return request("DELETE", "/v1/inbox-messages/{id}", params);
+    }
+
+    /**
      * DELETE /v1/integrations/connections/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -832,6 +1002,26 @@ public abstract class Operations {
      */
     public Object deleteV1IntegrationsConnectionsByIdHubspotListsBySyncId(Params params) {
         return request("DELETE", "/v1/integrations/connections/{id}/hubspot/lists/{syncId}", params);
+    }
+
+    /**
+     * DELETE /v1/integrations/crm-imports/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1IntegrationsCrmImportsById(Params params) {
+        return request("DELETE", "/v1/integrations/crm-imports/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/integrations/packages/{packageId} - Uninstall; refused while connections use it
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1IntegrationsPackagesByPackageId(Params params) {
+        return request("DELETE", "/v1/integrations/packages/{packageId}", params);
     }
 
     /**
@@ -862,6 +1052,16 @@ public abstract class Operations {
      */
     public Object deleteV1JobsById(Params params) {
         return request("DELETE", "/v1/jobs/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/landing-page-clusters/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LandingPageClustersById(Params params) {
+        return request("DELETE", "/v1/landing-page-clusters/{id}", params);
     }
 
     /**
@@ -905,6 +1105,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/leads/companies/{id}/files/{fileId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LeadsCompaniesByIdFilesByFileId(Params params) {
+        return request("DELETE", "/v1/leads/companies/{id}/files/{fileId}", params);
+    }
+
+    /**
      * DELETE /v1/leads/companies/{id}/link/{profileId}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -922,6 +1132,16 @@ public abstract class Operations {
      */
     public Object deleteV1LeadsCompaniesByIdNotesByNoteId(Params params) {
         return request("DELETE", "/v1/leads/companies/{id}/notes/{noteId}", params);
+    }
+
+    /**
+     * DELETE /v1/leads/company-fields/{key}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LeadsCompanyFieldsByKey(Params params) {
+        return request("DELETE", "/v1/leads/company-fields/{key}", params);
     }
 
     /**
@@ -1035,6 +1255,46 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/loyalty/programs/{id} - Delete a programme with its ledger (balances are lost)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LoyaltyProgramsById(Params params) {
+        return request("DELETE", "/v1/loyalty/programs/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/loyalty/programs/{id}/rewards/{subId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LoyaltyProgramsByIdRewardsBySubId(Params params) {
+        return request("DELETE", "/v1/loyalty/programs/{id}/rewards/{subId}", params);
+    }
+
+    /**
+     * DELETE /v1/loyalty/programs/{id}/rules/{subId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LoyaltyProgramsByIdRulesBySubId(Params params) {
+        return request("DELETE", "/v1/loyalty/programs/{id}/rules/{subId}", params);
+    }
+
+    /**
+     * DELETE /v1/loyalty/programs/{id}/tiers/{subId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1LoyaltyProgramsByIdTiersBySubId(Params params) {
+        return request("DELETE", "/v1/loyalty/programs/{id}/tiers/{subId}", params);
+    }
+
+    /**
      * DELETE /v1/mapped-metrics/{role} - Reset a role to its default event
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1042,6 +1302,16 @@ public abstract class Operations {
      */
     public Object deleteV1MappedMetricsByRole(Params params) {
         return request("DELETE", "/v1/mapped-metrics/{role}", params);
+    }
+
+    /**
+     * DELETE /v1/marketing-events/apps/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1MarketingEventsAppsById(Params params) {
+        return request("DELETE", "/v1/marketing-events/apps/{id}", params);
     }
 
     /**
@@ -1082,6 +1352,16 @@ public abstract class Operations {
      */
     public Object deleteV1MarketingEventsByRefByRefListsByListId(Params params) {
         return request("DELETE", "/v1/marketing-events/by-ref/{ref}/lists/{listId}", params);
+    }
+
+    /**
+     * DELETE /v1/me/identities/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1MeIdentitiesById(Params params) {
+        return request("DELETE", "/v1/me/identities/{id}", params);
     }
 
     /**
@@ -1255,7 +1535,7 @@ public abstract class Operations {
     }
 
     /**
-     * DELETE /v1/notes/{id}
+     * DELETE /v1/notes/{id} - Delete a contact or company note
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -1345,6 +1625,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/operator/waitlist/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1OperatorWaitlistById(Params params) {
+        return request("DELETE", "/v1/operator/waitlist/{id}", params);
+    }
+
+    /**
      * DELETE /v1/outbound/ai-key
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1355,6 +1645,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/outbound/booking-pages/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1OutboundBookingPagesById(Params params) {
+        return request("DELETE", "/v1/outbound/booking-pages/{id}", params);
+    }
+
+    /**
      * DELETE /v1/outbound/call-dispositions/{key}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1362,6 +1662,16 @@ public abstract class Operations {
      */
     public Object deleteV1OutboundCallDispositionsByKey(Params params) {
         return request("DELETE", "/v1/outbound/call-dispositions/{key}", params);
+    }
+
+    /**
+     * DELETE /v1/outbound/calls/{id}/recording - Delete the recording link and transcript of a logged call (outcome, length and notes stay)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1OutboundCallsByIdRecording(Params params) {
+        return request("DELETE", "/v1/outbound/calls/{id}/recording", params);
     }
 
     /**
@@ -1475,6 +1785,56 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/outbound/task-types/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1OutboundTaskTypesById(Params params) {
+        return request("DELETE", "/v1/outbound/task-types/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/outbound/telephony
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1OutboundTelephony(Params params) {
+        return request("DELETE", "/v1/outbound/telephony", params);
+    }
+
+    /**
+     * DELETE /v1/outbound/voice-clips/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1OutboundVoiceClipsById(Params params) {
+        return request("DELETE", "/v1/outbound/voice-clips/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/page-sites/{id} - Delete the site (its pages stay, unassigned) and stop serving its domain
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1PageSitesById(Params params) {
+        return request("DELETE", "/v1/page-sites/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/page-sites/{id}/domain
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1PageSitesByIdDomain(Params params) {
+        return request("DELETE", "/v1/page-sites/{id}/domain", params);
+    }
+
+    /**
      * DELETE /v1/postal-addresses/{id} - Delete an address; lists that used it print the workspace address again
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1482,6 +1842,16 @@ public abstract class Operations {
      */
     public Object deleteV1PostalAddressesById(Params params) {
         return request("DELETE", "/v1/postal-addresses/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/profile-filters/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1ProfileFiltersById(Params params) {
+        return request("DELETE", "/v1/profile-filters/{id}", params);
     }
 
     /**
@@ -1522,6 +1892,16 @@ public abstract class Operations {
      */
     public Object deleteV1ProfilesByIdEngagement(Params params) {
         return request("DELETE", "/v1/profiles/{id}/engagement", params);
+    }
+
+    /**
+     * DELETE /v1/profiles/{id}/files/{fileId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1ProfilesByIdFilesByFileId(Params params) {
+        return request("DELETE", "/v1/profiles/{id}/files/{fileId}", params);
     }
 
     /**
@@ -1695,6 +2075,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/segments/{id}/members - Remove contacts from a hand-picked segment by profile id or email
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SegmentsByIdMembers(Params params) {
+        return request("DELETE", "/v1/segments/{id}/members", params);
+    }
+
+    /**
      * DELETE /v1/sender-pools/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1702,6 +2092,16 @@ public abstract class Operations {
      */
     public Object deleteV1SenderPoolsById(Params params) {
         return request("DELETE", "/v1/sender-pools/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/senders/{id}/signing/{kind}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SendersByIdSigningByKind(Params params) {
+        return request("DELETE", "/v1/senders/{id}/signing/{kind}", params);
     }
 
     /**
@@ -1725,6 +2125,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/shared-object-schemas/{id} - Stop sharing (only from the workspace that published it; installed copies stay)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SharedObjectSchemasById(Params params) {
+        return request("DELETE", "/v1/shared-object-schemas/{id}", params);
+    }
+
+    /**
      * DELETE /v1/shares/{type}/{id}/{userId} - Stop sharing with one member; when the last share goes the resource is open again
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1745,6 +2155,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/site-messages/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SiteMessagesById(Params params) {
+        return request("DELETE", "/v1/site-messages/{id}", params);
+    }
+
+    /**
      * DELETE /v1/sites/{id} - Revokes the site key
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1752,6 +2172,26 @@ public abstract class Operations {
      */
     public Object deleteV1SitesById(Params params) {
         return request("DELETE", "/v1/sites/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/slack/installs/{id} - Remove a Slack workspace and delete its token
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SlackInstallsById(Params params) {
+        return request("DELETE", "/v1/slack/installs/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/slack/templates/{id} - Delete a Slack message template
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SlackTemplatesById(Params params) {
+        return request("DELETE", "/v1/slack/templates/{id}", params);
     }
 
     /**
@@ -1805,6 +2245,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/social/accounts/{id} - Disconnect an account and delete its token
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SocialAccountsById(Params params) {
+        return request("DELETE", "/v1/social/accounts/{id}", params);
+    }
+
+    /**
      * DELETE /v1/soft-bounce-allowlist/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -1812,6 +2262,16 @@ public abstract class Operations {
      */
     public Object deleteV1SoftBounceAllowlistById(Params params) {
         return request("DELETE", "/v1/soft-bounce-allowlist/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/sql-sources/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1SqlSourcesById(Params params) {
+        return request("DELETE", "/v1/sql-sources/{id}", params);
     }
 
     /**
@@ -1995,6 +2455,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/transactional/metadata-fields/{name} - Stop showing a metadata key in the log; messages keep their metadata
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1TransactionalMetadataFieldsByName(Params params) {
+        return request("DELETE", "/v1/transactional/metadata-fields/{name}", params);
+    }
+
+    /**
      * DELETE /v1/transactional/tags/{tag} - Remove a tag from every message that carries it
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2045,6 +2515,16 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /v1/webhooks/endpoints - Delete every webhook subscription in the workspace (pending deliveries are cancelled)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1WebhooksEndpoints(Params params) {
+        return request("DELETE", "/v1/webhooks/endpoints", params);
+    }
+
+    /**
      * DELETE /v1/webhooks/endpoints/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2082,6 +2562,26 @@ public abstract class Operations {
      */
     public Object deleteV1WhatsappTemplatesById(Params params) {
         return request("DELETE", "/v1/whatsapp/templates/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/workflow-custom-types/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1WorkflowCustomTypesById(Params params) {
+        return request("DELETE", "/v1/workflow-custom-types/{id}", params);
+    }
+
+    /**
+     * DELETE /v1/workflows/{id} - Delete a draft or archived journey for good (versions and history go with it); archive a live one first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteV1WorkflowsById(Params params) {
+        return request("DELETE", "/v1/workflows/{id}", params);
     }
 
     /**
@@ -2165,6 +2665,26 @@ public abstract class Operations {
     }
 
     /**
+     * DELETE /wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object deleteWalletAppleByWsV1DevicesByDeviceRegistrationsByPassTypeBySerial(Params params) {
+        return request("DELETE", "/wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial}", params);
+    }
+
+    /**
+     * GET /book/{ws}/{slug} - Hosted booking page
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getBookByWsBySlug(Params params) {
+        return request("GET", "/book/{ws}/{slug}", params);
+    }
+
+    /**
      * GET /client/geofences - Active geofences the app should monitor (Klaviyo JSON:API list)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2182,6 +2702,26 @@ public abstract class Operations {
      */
     public Object getClientInAppMessages(Params params) {
         return request("GET", "/client/in-app-messages", params);
+    }
+
+    /**
+     * GET /client/in-app-trackers - Active tracker components for the contact (journey tracker steps)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getClientInAppTrackers(Params params) {
+        return request("GET", "/client/in-app-trackers", params);
+    }
+
+    /**
+     * GET /client/inbox - The contact's inbox, newest first, with the unread count
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getClientInbox(Params params) {
+        return request("GET", "/client/inbox", params);
     }
 
     /**
@@ -2225,6 +2765,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /e/s/{ws}/{token} - Anonymous survey link: a blank form (never earlier answers or results)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getESByWsByToken(Params params) {
+        return request("GET", "/e/s/{ws}/{token}", params);
+    }
+
+    /**
      * GET /e/survey/{ws}/{id} - Hosted survey page
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2255,6 +2805,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /f/{ws}/{id}/{*} - A not-indexable or private library file: private files need a valid signed link (?t=); always answered with noindex
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getFByWsByIdWildcard(Params params) {
+        return request("GET", "/f/{ws}/{id}/{*}", params);
+    }
+
+    /**
+     * GET /feeds/reviews/{token} - Google Shopping product reviews feed (the signed link from /v1/review-feeds/google)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getFeedsReviewsByToken(Params params) {
+        return request("GET", "/feeds/reviews/{token}", params);
+    }
+
+    /**
      * GET /healthz
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2265,6 +2835,46 @@ public abstract class Operations {
     }
 
     /**
+     * GET /hub/{ws} - The customer hub page (or its sign-in form)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getHubByWs(Params params) {
+        return request("GET", "/hub/{ws}", params);
+    }
+
+    /**
+     * GET /hub/{ws}/api/me - Everything the signed-in shopper sees
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getHubByWsApiMe(Params params) {
+        return request("GET", "/hub/{ws}/api/me", params);
+    }
+
+    /**
+     * GET /hub/{ws}/auth/{token}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getHubByWsAuthByToken(Params params) {
+        return request("GET", "/hub/{ws}/auth/{token}", params);
+    }
+
+    /**
+     * GET /ical/{ws}/{file} - The ICS feed itself (token in the URL). Titles and times only, never message bodies
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getIcalByWsByFile(Params params) {
+        return request("GET", "/ical/{ws}/{file}", params);
+    }
+
+    /**
      * GET /ingest/v1/forms
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2272,6 +2882,26 @@ public abstract class Operations {
      */
     public Object getIngestV1Forms(Params params) {
         return request("GET", "/ingest/v1/forms", params);
+    }
+
+    /**
+     * GET /ingest/v1/forms/{id}/companies - Company name suggestions for a form company field (names only)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getIngestV1FormsByIdCompanies(Params params) {
+        return request("GET", "/ingest/v1/forms/{id}/companies", params);
+    }
+
+    /**
+     * GET /ingest/v1/forms/visitor - Audience flags for on-site targeting: booleans only (known, subscriber, membership of each targeted list/segment, targeted countries)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getIngestV1FormsVisitor(Params params) {
+        return request("GET", "/ingest/v1/forms/visitor", params);
     }
 
     /**
@@ -2292,6 +2922,16 @@ public abstract class Operations {
      */
     public Object getIngestV1ReviewValuesReports(Params params) {
         return request("GET", "/ingest/v1/review-values-reports", params);
+    }
+
+    /**
+     * GET /ingest/v1/site-messages - Site messages for this visitor: published ones, plus those a journey queued for them
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getIngestV1SiteMessages(Params params) {
+        return request("GET", "/ingest/v1/site-messages", params);
     }
 
     /**
@@ -2345,6 +2985,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /integrations/slack/callback
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getIntegrationsSlackCallback(Params params) {
+        return request("GET", "/integrations/slack/callback", params);
+    }
+
+    /**
+     * GET /integrations/social/{platform}/callback
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getIntegrationsSocialByPlatformCallback(Params params) {
+        return request("GET", "/integrations/social/{platform}/callback", params);
+    }
+
+    /**
      * GET /integrations/x/callback
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2362,6 +3022,26 @@ public abstract class Operations {
      */
     public Object getLCWildcard(Params params) {
         return request("GET", "/l/c/{*}", params);
+    }
+
+    /**
+     * GET /loyalty/v1/program - Programme name, tiers and rewards for a storefront widget (no member data)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getLoyaltyV1Program(Params params) {
+        return request("GET", "/loyalty/v1/program", params);
+    }
+
+    /**
+     * GET /mcp - Not offered: the hosted MCP server is stateless (POST only).
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getMcp(Params params) {
+        return request("GET", "/mcp", params);
     }
 
     /**
@@ -2485,6 +3165,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /p/f/{ref}/companies - Company suggestions for a hosted form
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getPFByRefCompanies(Params params) {
+        return request("GET", "/p/f/{ref}/companies", params);
+    }
+
+    /**
      * GET /p/gift/{ws}/{code} - Gift redeem page
      *
      * @param params path, query, body and idempotency key; may be null
@@ -2512,6 +3202,16 @@ public abstract class Operations {
      */
     public Object getPLByRef(Params params) {
         return request("GET", "/p/l/{ref}", params);
+    }
+
+    /**
+     * GET /p/l/{ref}/companies - Company suggestions for the form on a hosted page
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getPLByRefCompanies(Params params) {
+        return request("GET", "/p/l/{ref}/companies", params);
     }
 
     /**
@@ -2695,13 +3395,43 @@ public abstract class Operations {
     }
 
     /**
-     * GET /p/s/{token} - Shared read-only outline of a sequence
+     * GET /p/robots/{ws} - robots.txt for a site on its custom domain
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getPRobotsByWs(Params params) {
+        return request("GET", "/p/robots/{ws}", params);
+    }
+
+    /**
+     * GET /p/s/{token} - Public share link of a campaign report: the hosted copy, tracked
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object getPSByToken(Params params) {
         return request("GET", "/p/s/{token}", params);
+    }
+
+    /**
+     * GET /p/s/{token}/c - A click on a link of the shared copy: recorded, then redirected (only to a link the copy really contains)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getPSByTokenC(Params params) {
+        return request("GET", "/p/s/{token}/c", params);
+    }
+
+    /**
+     * GET /p/seq/{token} - Shared read-only outline of a sequence
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getPSeqByToken(Params params) {
+        return request("GET", "/p/seq/{token}", params);
     }
 
     /**
@@ -2712,6 +3442,16 @@ public abstract class Operations {
      */
     public Object getPSigninByWs(Params params) {
         return request("GET", "/p/signin/{ws}", params);
+    }
+
+    /**
+     * GET /p/sitemap/{ws} - sitemap.xml for hosted pages (one site with `site`)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getPSitemapByWs(Params params) {
+        return request("GET", "/p/sitemap/{ws}", params);
     }
 
     /**
@@ -2935,7 +3675,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/activity - Recent workspace activity feed built from the audit log
+     * GET /v1/activity - Recent workspace activity feed built from the audit log; filter by target type, action and person
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -2945,13 +3685,23 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/activity/highlights - Marketer feed: recently finished sends, daily sign-ups over the last 14 days and the audience size milestone reached
+     * GET /v1/activity/highlights - Marketer feed over the chosen window: finished sends, each sign-up one by one, daily list growth and the audience milestone reached; paged b
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object getV1ActivityHighlights(Params params) {
         return request("GET", "/v1/activity/highlights", params);
+    }
+
+    /**
+     * GET /v1/activity/people - Activity of everyone in the workspace; filter by type, name, person and deleted people
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ActivityPeople(Params params) {
+        return request("GET", "/v1/activity/people", params);
     }
 
     /**
@@ -2985,6 +3735,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/ads/accounts/{id}/lead-forms - Lead-ad forms on the account's Facebook page, with their questions and consent checkboxes
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AdsAccountsByIdLeadForms(Params params) {
+        return request("GET", "/v1/ads/accounts/{id}/lead-forms", params);
+    }
+
+    /**
+     * GET /v1/ads/accounts/{id}/objects - Campaigns, ad sets and ads on the platform with last-30-day reach, spend and ROAS
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AdsAccountsByIdObjects(Params params) {
+        return request("GET", "/v1/ads/accounts/{id}/objects", params);
+    }
+
+    /**
      * GET /v1/ads/audiences - Segment -&gt; ad audience syncs
      *
      * @param params path, query, body and idempotency key; may be null
@@ -3012,6 +3782,46 @@ public abstract class Operations {
      */
     public Object getV1AdsAudiencesByIdRuns(Params params) {
         return request("GET", "/v1/ads/audiences/{id}/runs", params);
+    }
+
+    /**
+     * GET /v1/ads/campaigns - Campaigns built here
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AdsCampaigns(Params params) {
+        return request("GET", "/v1/ads/campaigns", params);
+    }
+
+    /**
+     * GET /v1/ads/campaigns/{id} - One campaign
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AdsCampaignsById(Params params) {
+        return request("GET", "/v1/ads/campaigns/{id}", params);
+    }
+
+    /**
+     * GET /v1/ads/lead-syncs - Lead-ad forms synced into forms
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AdsLeadSyncs(Params params) {
+        return request("GET", "/v1/ads/lead-syncs", params);
+    }
+
+    /**
+     * GET /v1/ads/lead-syncs/{id}/imports - Leads imported by a sync
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AdsLeadSyncsByIdImports(Params params) {
+        return request("GET", "/v1/ads/lead-syncs/{id}/imports", params);
     }
 
     /**
@@ -3095,6 +3905,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/agency/clients/{workspaceId}/snippet - The client's website snippet (site key) and the state of its integrations
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AgencyClientsByWorkspaceIdSnippet(Params params) {
+        return request("GET", "/v1/agency/clients/{workspaceId}/snippet", params);
+    }
+
+    /**
      * GET /v1/agency/groups
      *
      * @param params path, query, body and idempotency key; may be null
@@ -3142,6 +3962,136 @@ public abstract class Operations {
      */
     public Object getV1AgencyOutbound(Params params) {
         return request("GET", "/v1/agency/outbound", params);
+    }
+
+    /**
+     * GET /v1/ai-agents
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgents(Params params) {
+        return request("GET", "/v1/ai-agents", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsById(Params params) {
+        return request("GET", "/v1/ai-agents/{id}", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}/analytics/summary
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsByIdAnalyticsSummary(Params params) {
+        return request("GET", "/v1/ai-agents/{id}/analytics/summary", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}/guidances
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsByIdGuidances(Params params) {
+        return request("GET", "/v1/ai-agents/{id}/guidances", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}/guidances/{guidanceId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsByIdGuidancesByGuidanceId(Params params) {
+        return request("GET", "/v1/ai-agents/{id}/guidances/{guidanceId}", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}/leads
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsByIdLeads(Params params) {
+        return request("GET", "/v1/ai-agents/{id}/leads", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}/leads/{profileId}/research - What the agent knew about a lead when it wrote to them, and every proposal it made
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsByIdLeadsByProfileIdResearch(Params params) {
+        return request("GET", "/v1/ai-agents/{id}/leads/{profileId}/research", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/{id}/opportunities - Where the leads a sales agent emailed stand now
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsByIdOpportunities(Params params) {
+        return request("GET", "/v1/ai-agents/{id}/opportunities", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/items
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsItems(Params params) {
+        return request("GET", "/v1/ai-agents/items", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/items/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsItemsById(Params params) {
+        return request("GET", "/v1/ai-agents/items/{id}", params);
+    }
+
+    /**
+     * GET /v1/ai-agents/status - Whether agents can run: operator switch and workspace AI opt-in
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiAgentsStatus(Params params) {
+        return request("GET", "/v1/ai-agents/status", params);
+    }
+
+    /**
+     * GET /v1/ai/flow-builds - History of AI journey builds, newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiFlowBuilds(Params params) {
+        return request("GET", "/v1/ai/flow-builds", params);
+    }
+
+    /**
+     * GET /v1/ai/flow-builds/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AiFlowBuildsById(Params params) {
+        return request("GET", "/v1/ai/flow-builds/{id}", params);
     }
 
     /**
@@ -3275,6 +4225,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/analytics/conversion-folders - Conversions grouped by folder, with each conversion's count and value in the range
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AnalyticsConversionFolders(Params params) {
+        return request("GET", "/v1/analytics/conversion-folders", params);
+    }
+
+    /**
      * GET /v1/analytics/conversion-labels
      *
      * @param params path, query, body and idempotency key; may be null
@@ -3325,7 +4285,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/analytics/conversions/{id} - One conversion with the touches credited for it
+     * GET /v1/analytics/conversions/{id} - One conversion with the touches credited for it, the event that triggered it and the activity around it
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -3362,6 +4322,16 @@ public abstract class Operations {
      */
     public Object getV1AnalyticsDashboardsById(Params params) {
         return request("GET", "/v1/analytics/dashboards/{id}", params);
+    }
+
+    /**
+     * GET /v1/analytics/dashboards/{id}/definition/export - The dashboard and its reports as portable JSON (no schedules, recipients or sharing)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AnalyticsDashboardsByIdDefinitionExport(Params params) {
+        return request("GET", "/v1/analytics/dashboards/{id}/definition/export", params);
     }
 
     /**
@@ -3435,6 +4405,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/analytics/landing-pages - Landing page report: visits, unique visitors, sign-ups and conversion rate per page over a date range
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AnalyticsLandingPages(Params params) {
+        return request("GET", "/v1/analytics/landing-pages", params);
+    }
+
+    /**
      * GET /v1/analytics/messages
      *
      * @param params path, query, body and idempotency key; may be null
@@ -3462,6 +4442,16 @@ public abstract class Operations {
      */
     public Object getV1AnalyticsPredictionsStatus(Params params) {
         return request("GET", "/v1/analytics/predictions/status", params);
+    }
+
+    /**
+     * GET /v1/analytics/record-sources - Report builder record sources (contacts, companies, form results, page hits, asset downloads, workflow log, point log, frequency rules) and 
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AnalyticsRecordSources(Params params) {
+        return request("GET", "/v1/analytics/record-sources", params);
     }
 
     /**
@@ -3595,6 +4585,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/analytics/surveys/{id}/report - Survey report: responses and answer breakdown per question, optionally for the members of one list or segment
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AnalyticsSurveysByIdReport(Params params) {
+        return request("GET", "/v1/analytics/surveys/{id}/report", params);
+    }
+
+    /**
      * GET /v1/analytics/time-to-convert
      *
      * @param params path, query, body and idempotency key; may be null
@@ -3692,6 +4692,26 @@ public abstract class Operations {
      */
     public Object getV1AssetsByPath(Params params) {
         return request("GET", "/v1/assets/by-path", params);
+    }
+
+    /**
+     * GET /v1/association-labels
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AssociationLabels(Params params) {
+        return request("GET", "/v1/association-labels", params);
+    }
+
+    /**
+     * GET /v1/associations/{type}/{id} - Everything a profile or object record is associated with, with labels
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AssociationsByTypeById(Params params) {
+        return request("GET", "/v1/associations/{type}/{id}", params);
     }
 
     /**
@@ -3812,6 +4832,66 @@ public abstract class Operations {
      */
     public Object getV1AuthorizedAppsByClientId(Params params) {
         return request("GET", "/v1/authorized-apps/{clientId}", params);
+    }
+
+    /**
+     * GET /v1/auth/signup-info - Whether sign-up is open, which social sign-in buttons to show
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AuthSignupInfo(Params params) {
+        return request("GET", "/v1/auth/signup-info", params);
+    }
+
+    /**
+     * GET /v1/auth/social/{provider}/callback - Provider callback: signs in, links by verified email, or creates an account
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AuthSocialByProviderCallback(Params params) {
+        return request("GET", "/v1/auth/social/{provider}/callback", params);
+    }
+
+    /**
+     * GET /v1/auth/social/{provider}/start - Start Google or GitHub sign-in (redirects to the provider)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1AuthSocialByProviderStart(Params params) {
+        return request("GET", "/v1/auth/social/{provider}/start", params);
+    }
+
+    /**
+     * GET /v1/batches
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1Batches(Params params) {
+        return request("GET", "/v1/batches", params);
+    }
+
+    /**
+     * GET /v1/batches/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1BatchesById(Params params) {
+        return request("GET", "/v1/batches/{id}", params);
+    }
+
+    /**
+     * GET /v1/batches/{id}/results - Each call's status and response body, in call order (page with `after`)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1BatchesByIdResults(Params params) {
+        return request("GET", "/v1/batches/{id}/results", params);
     }
 
     /**
@@ -4085,6 +5165,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/calendar-feeds
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CalendarFeeds(Params params) {
+        return request("GET", "/v1/calendar-feeds", params);
+    }
+
+    /**
      * GET /v1/calendar/mine - My own calendar entries
      *
      * @param params path, query, body and idempotency key; may be null
@@ -4135,6 +5225,36 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/campaign-folders/{id}/budgets
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignFoldersByIdBudgets(Params params) {
+        return request("GET", "/v1/campaign-folders/{id}/budgets", params);
+    }
+
+    /**
+     * GET /v1/campaign-folders/{id}/report - Roll-up of everything filed in a campaign folder: contacts reached (first touch, last touch, influenced), message, form and page metrics, an
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignFoldersByIdReport(Params params) {
+        return request("GET", "/v1/campaign-folders/{id}/report", params);
+    }
+
+    /**
+     * GET /v1/campaign-messages - Every campaign message in the workspace, filtered by campaign, channel, status, text and updated time
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignMessages(Params params) {
+        return request("GET", "/v1/campaign-messages", params);
+    }
+
+    /**
      * GET /v1/campaign-messages/{id}/tags
      *
      * @param params path, query, body and idempotency key; may be null
@@ -4175,6 +5295,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/campaigns/{id}/audiences
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdAudiences(Params params) {
+        return request("GET", "/v1/campaigns/{id}/audiences", params);
+    }
+
+    /**
+     * GET /v1/campaigns/{id}/audiences/{audienceId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdAudiencesByAudienceId(Params params) {
+        return request("GET", "/v1/campaigns/{id}/audiences/{audienceId}", params);
+    }
+
+    /**
      * GET /v1/campaigns/{id}/checklist
      *
      * @param params path, query, body and idempotency key; may be null
@@ -4202,6 +5342,16 @@ public abstract class Operations {
      */
     public Object getV1CampaignsByIdContentCheck(Params params) {
         return request("GET", "/v1/campaigns/{id}/content-check", params);
+    }
+
+    /**
+     * GET /v1/campaigns/{id}/drafts
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdDrafts(Params params) {
+        return request("GET", "/v1/campaigns/{id}/drafts", params);
     }
 
     /**
@@ -4265,6 +5415,36 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/campaigns/{id}/messages/{messageId}/variants
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdMessagesByMessageIdVariants(Params params) {
+        return request("GET", "/v1/campaigns/{id}/messages/{messageId}/variants", params);
+    }
+
+    /**
+     * GET /v1/campaigns/{id}/postcard
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdPostcard(Params params) {
+        return request("GET", "/v1/campaigns/{id}/postcard", params);
+    }
+
+    /**
+     * GET /v1/campaigns/{id}/postcard/report
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdPostcardReport(Params params) {
+        return request("GET", "/v1/campaigns/{id}/postcard/report", params);
+    }
+
+    /**
      * GET /v1/campaigns/{id}/push - A push campaign's title, body and extras (image, link, data, badge, sound, TTL, per-platform overrides)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -4292,6 +5472,16 @@ public abstract class Operations {
      */
     public Object getV1CampaignsByIdRecipientEstimationsByJobId(Params params) {
         return request("GET", "/v1/campaigns/{id}/recipient-estimations/{jobId}", params);
+    }
+
+    /**
+     * GET /v1/campaigns/{id}/recipient-estimations/latest - The most recent recipient estimation of this campaign
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CampaignsByIdRecipientEstimationsLatest(Params params) {
+        return request("GET", "/v1/campaigns/{id}/recipient-estimations/latest", params);
     }
 
     /**
@@ -4445,7 +5635,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/catalog/bulk-jobs
+     * GET /v1/catalog/bulk-jobs - Filter by resource, op and status; page with nextCursor
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -4465,7 +5655,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/catalog/categories
+     * GET /v1/catalog/categories - Filter by ids, name (contains) or item; page with nextCursor
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -4535,7 +5725,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/catalog/items/{id}/categories
+     * GET /v1/catalog/items/{id}/categories - The category objects this item is in
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -4575,7 +5765,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/catalog/variants
+     * GET /v1/catalog/variants - Filter by ids, sku, title, published or item; page with nextCursor
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -4592,16 +5782,6 @@ public abstract class Operations {
      */
     public Object getV1CatalogVariantsById(Params params) {
         return request("GET", "/v1/catalog/variants/{id}", params);
-    }
-
-    /**
-     * GET /v1/client-previews/{externalId}
-     *
-     * @param params path, query, body and idempotency key; may be null
-     * @return the parsed JSON answer
-     */
-    public Object getV1ClientPreviewsByExternalId(Params params) {
-        return request("GET", "/v1/client-previews/{externalId}", params);
     }
 
     /**
@@ -4885,6 +6065,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/compliance/export-retention - Days an export file is kept before it is deleted
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ComplianceExportRetention(Params params) {
+        return request("GET", "/v1/compliance/export-retention", params);
+    }
+
+    /**
      * GET /v1/compliance/gpc - Whether a browser Global Privacy Control / Do Not Track signal counts as a tracking opt-out (default on)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -4922,6 +6112,16 @@ public abstract class Operations {
      */
     public Object getV1ComplianceTrashRetention(Params params) {
         return request("GET", "/v1/compliance/trash-retention", params);
+    }
+
+    /**
+     * GET /v1/compliance/unconfirmed-purge - Days after which contacts that never confirmed an opt-in are deleted (null = off)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ComplianceUnconfirmedPurge(Params params) {
+        return request("GET", "/v1/compliance/unconfirmed-purge", params);
     }
 
     /**
@@ -5015,6 +6215,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/content-slots/pushes - Live content journeys pushed into individual visitors' slots
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ContentSlotsPushes(Params params) {
+        return request("GET", "/v1/content-slots/pushes", params);
+    }
+
+    /**
      * GET /v1/conversations - Replies to marketing campaigns
      *
      * @param params path, query, body and idempotency key; may be null
@@ -5052,6 +6262,16 @@ public abstract class Operations {
      */
     public Object getV1ConversationsByIdMessagesByMessageId(Params params) {
         return request("GET", "/v1/conversations/{id}/messages/{messageId}", params);
+    }
+
+    /**
+     * GET /v1/coupon-codes - Codes across every pool: by profile, status, expiry range
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1CouponCodes(Params params) {
+        return request("GET", "/v1/coupon-codes", params);
     }
 
     /**
@@ -5335,6 +6555,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/deliverability/recommendations
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1DeliverabilityRecommendations(Params params) {
+        return request("GET", "/v1/deliverability/recommendations", params);
+    }
+
+    /**
      * GET /v1/deliverability/reputation
      *
      * @param params path, query, body and idempotency key; may be null
@@ -5415,6 +6645,36 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/destinations
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1Destinations(Params params) {
+        return request("GET", "/v1/destinations", params);
+    }
+
+    /**
+     * GET /v1/destinations/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1DestinationsById(Params params) {
+        return request("GET", "/v1/destinations/{id}", params);
+    }
+
+    /**
+     * GET /v1/destinations/{id}/deliveries - Recent deliveries with their status and last error
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1DestinationsByIdDeliveries(Params params) {
+        return request("GET", "/v1/destinations/{id}/deliveries", params);
+    }
+
+    /**
      * GET /v1/developer/requests - API request log for debugging: method, route, status and duration of authenticated calls, kept 30 days
      *
      * @param params path, query, body and idempotency key; may be null
@@ -5425,7 +6685,27 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/emails - Campaigns as one email list with state and channel filters
+     * GET /v1/do-not-contact - LinkedIn do-not-contact list (emails and phones are listed under suppressions)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1DoNotContact(Params params) {
+        return request("GET", "/v1/do-not-contact", params);
+    }
+
+    /**
+     * GET /v1/do-not-contact/check
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1DoNotContactCheck(Params params) {
+        return request("GET", "/v1/do-not-contact/check", params);
+    }
+
+    /**
+     * GET /v1/emails - Campaigns as one email list: state, type, channel, created/updated/scheduled ranges, archived and sort
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -5445,7 +6725,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/emails/statistics/histogram - Day-by-day sent, delivered, bounced, opened and clicked for one email
+     * GET /v1/emails/statistics/histogram - Sent, delivered, bounced, opened and clicked for one email per day, week or month between start and end
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -5455,13 +6735,93 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/emails/statistics/list - Totals for several emails at once (comma separated ids)
+     * GET /v1/emails/statistics/list - Totals for up to 50 emails (comma separated ids) in a date window, plus their sum
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object getV1EmailsStatisticsList(Params params) {
         return request("GET", "/v1/emails/statistics/list", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/ai
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenAi(Params params) {
+        return request("GET", "/v1/embed-api/{token}/ai", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/deliveries
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenDeliveries(Params params) {
+        return request("GET", "/v1/embed-api/{token}/deliveries", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/journey
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenJourney(Params params) {
+        return request("GET", "/v1/embed-api/{token}/journey", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/sections - Saved sections to insert a copy of
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenSections(Params params) {
+        return request("GET", "/v1/embed-api/{token}/sections", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/seed-lists
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenSeedLists(Params params) {
+        return request("GET", "/v1/embed-api/{token}/seed-lists", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/template
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenTemplate(Params params) {
+        return request("GET", "/v1/embed-api/{token}/template", params);
+    }
+
+    /**
+     * GET /v1/embed-api/{token}/template/versions
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiByTokenTemplateVersions(Params params) {
+        return request("GET", "/v1/embed-api/{token}/template/versions", params);
+    }
+
+    /**
+     * GET /v1/embed-api/frame-policy - Internal: frame-ancestors for the web embed page, from the token in x-embed-token
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EmbedApiFramePolicy(Params params) {
+        return request("GET", "/v1/embed-api/frame-policy", params);
     }
 
     /**
@@ -5495,7 +6855,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/events - Workspace-wide event list (filter by name, profile, time range, properties)
+     * GET /v1/events - Workspace-wide event list: filter by name, profile, time range, properties, journey or broadcast; sort by datetime; include=metric,profile
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -5512,6 +6872,26 @@ public abstract class Operations {
      */
     public Object getV1EventsById(Params params) {
         return request("GET", "/v1/events/{id}", params);
+    }
+
+    /**
+     * GET /v1/events/export - The same filters as GET /v1/events, as CSV text (first 50,000 events); POST /v1/events/export-jobs exports every match as a file
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EventsExport(Params params) {
+        return request("GET", "/v1/events/export", params);
+    }
+
+    /**
+     * GET /v1/events/settings - Whether server-side event ingest is on, and the custom field used as each person's primary key
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1EventsSettings(Params params) {
+        return request("GET", "/v1/events/settings", params);
     }
 
     /**
@@ -5585,7 +6965,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/forms
+     * GET /v1/forms - Filter by name, status, kind, ad id and created/updated ranges; sort by created, updated or name
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -5642,6 +7022,16 @@ public abstract class Operations {
      */
     public Object getV1FormsByIdSubmissionsBySubmissionId(Params params) {
         return request("GET", "/v1/forms/{id}/submissions/{submissionId}", params);
+    }
+
+    /**
+     * GET /v1/forms/{id}/submissions/export.csv - Every submission as CSV, oldest first (one column per field)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1FormsByIdSubmissionsExportCsv(Params params) {
+        return request("GET", "/v1/forms/{id}/submissions/export.csv", params);
     }
 
     /**
@@ -5825,6 +7215,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/identifier-blocks - Identifiers of suppressed-and-deleted contacts (values are kept hashed only)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IdentifierBlocks(Params params) {
+        return request("GET", "/v1/identifier-blocks", params);
+    }
+
+    /**
      * GET /v1/id-mappings - Old ids (from HubSpot, for example) and the lists or journeys they became
      *
      * @param params path, query, body and idempotency key; may be null
@@ -5902,6 +7302,16 @@ public abstract class Operations {
      */
     public Object getV1ImportSchedules(Params params) {
         return request("GET", "/v1/import-schedules", params);
+    }
+
+    /**
+     * GET /v1/in-app-components - Developer-defined in-app components
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1InAppComponents(Params params) {
+        return request("GET", "/v1/in-app-components", params);
     }
 
     /**
@@ -6005,6 +7415,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/info/ip-addresses - Egress IP addresses to allowlist for webhooks and connectors; compare syncToken to detect changes
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1InfoIpAddresses(Params params) {
+        return request("GET", "/v1/info/ip-addresses", params);
+    }
+
+    /**
      * GET /v1/integrations/catalog - Declarative connectors available to connect
      *
      * @param params path, query, body and idempotency key; may be null
@@ -6022,6 +7442,26 @@ public abstract class Operations {
      */
     public Object getV1IntegrationsConnections(Params params) {
         return request("GET", "/v1/integrations/connections", params);
+    }
+
+    /**
+     * GET /v1/integrations/connections/{id}/crm/sources - Lists, reports, list views, campaigns or filters that can be imported
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsConnectionsByIdCrmSources(Params params) {
+        return request("GET", "/v1/integrations/connections/{id}/crm/sources", params);
+    }
+
+    /**
+     * GET /v1/integrations/connections/{id}/crm/users
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsConnectionsByIdCrmUsers(Params params) {
+        return request("GET", "/v1/integrations/connections/{id}/crm/users", params);
     }
 
     /**
@@ -6052,6 +7492,66 @@ public abstract class Operations {
      */
     public Object getV1IntegrationsConnectionsByIdWebhookUrl(Params params) {
         return request("GET", "/v1/integrations/connections/{id}/webhook-url", params);
+    }
+
+    /**
+     * GET /v1/integrations/crm-imports
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsCrmImports(Params params) {
+        return request("GET", "/v1/integrations/crm-imports", params);
+    }
+
+    /**
+     * GET /v1/integrations/crm-log - Per-record CRM sync log, newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsCrmLog(Params params) {
+        return request("GET", "/v1/integrations/crm-log", params);
+    }
+
+    /**
+     * GET /v1/integrations/crm-settings - Workspace CRM settings (sync log retention)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsCrmSettings(Params params) {
+        return request("GET", "/v1/integrations/crm-settings", params);
+    }
+
+    /**
+     * GET /v1/integrations/google/callback
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsGoogleCallback(Params params) {
+        return request("GET", "/v1/integrations/google/callback", params);
+    }
+
+    /**
+     * GET /v1/integrations/marketplace - Catalogue packages, whether each passes signature and review checks, and the installed version
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsMarketplace(Params params) {
+        return request("GET", "/v1/integrations/marketplace", params);
+    }
+
+    /**
+     * GET /v1/integrations/packages
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1IntegrationsPackages(Params params) {
+        return request("GET", "/v1/integrations/packages", params);
     }
 
     /**
@@ -6115,6 +7615,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/landing-page-clusters
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LandingPageClusters(Params params) {
+        return request("GET", "/v1/landing-page-clusters", params);
+    }
+
+    /**
+     * GET /v1/landing-page-clusters/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LandingPageClustersById(Params params) {
+        return request("GET", "/v1/landing-page-clusters/{id}", params);
+    }
+
+    /**
      * GET /v1/landing-page-folders
      *
      * @param params path, query, body and idempotency key; may be null
@@ -6155,7 +7675,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/landing-pages
+     * GET /v1/landing-pages - Filter by name, state, site, folder, language, archived and created/updated ranges; sort by created, updated or name
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -6225,6 +7745,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/landing-pages/{id}/content - The page rendered to HTML (draft by default), with its block document
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LandingPagesByIdContent(Params params) {
+        return request("GET", "/v1/landing-pages/{id}/content", params);
+    }
+
+    /**
      * GET /v1/landing-pages/{id}/languages
      *
      * @param params path, query, body and idempotency key; may be null
@@ -6265,6 +7795,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/landing-pages/{id}/seo - SEO recommendations for one page (draft)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LandingPagesByIdSeo(Params params) {
+        return request("GET", "/v1/landing-pages/{id}/seo", params);
+    }
+
+    /**
      * GET /v1/landing-pages/not-found - Page addresses visitors requested that serve nothing, most requested first
      *
      * @param params path, query, body and idempotency key; may be null
@@ -6282,6 +7822,26 @@ public abstract class Operations {
      */
     public Object getV1LandingPagesReport(Params params) {
         return request("GET", "/v1/landing-pages/report", params);
+    }
+
+    /**
+     * GET /v1/landing-pages/seo/audit - SEO audit of every page: score and recommendations
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LandingPagesSeoAudit(Params params) {
+        return request("GET", "/v1/landing-pages/seo/audit", params);
+    }
+
+    /**
+     * GET /v1/landing-page-templates - Built-in page presets for `template_id`, and a link to more
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LandingPageTemplates(Params params) {
+        return request("GET", "/v1/landing-page-templates", params);
     }
 
     /**
@@ -6325,6 +7885,36 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/leads/companies/{id}/crm
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompaniesByIdCrm(Params params) {
+        return request("GET", "/v1/leads/companies/{id}/crm", params);
+    }
+
+    /**
+     * GET /v1/leads/companies/{id}/files
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompaniesByIdFiles(Params params) {
+        return request("GET", "/v1/leads/companies/{id}/files", params);
+    }
+
+    /**
+     * GET /v1/leads/companies/{id}/files/{fileId}/url - A download link valid for five minutes
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompaniesByIdFilesByFileIdUrl(Params params) {
+        return request("GET", "/v1/leads/companies/{id}/files/{fileId}/url", params);
+    }
+
+    /**
      * GET /v1/leads/companies/{id}/notes
      *
      * @param params path, query, body and idempotency key; may be null
@@ -6332,6 +7922,46 @@ public abstract class Operations {
      */
     public Object getV1LeadsCompaniesByIdNotes(Params params) {
         return request("GET", "/v1/leads/companies/{id}/notes", params);
+    }
+
+    /**
+     * GET /v1/leads/companies/{id}/score - Account score plus the roll-up of linked contacts' scores (profile attribute `key`)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompaniesByIdScore(Params params) {
+        return request("GET", "/v1/leads/companies/{id}/score", params);
+    }
+
+    /**
+     * GET /v1/leads/companies/export - Every company as CSV, with score and custom fields
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompaniesExport(Params params) {
+        return request("GET", "/v1/leads/companies/export", params);
+    }
+
+    /**
+     * GET /v1/leads/companies/search - Companies whose name or domain starts with q
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompaniesSearch(Params params) {
+        return request("GET", "/v1/leads/companies/search", params);
+    }
+
+    /**
+     * GET /v1/leads/company-fields - Custom company fields
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LeadsCompanyFields(Params params) {
+        return request("GET", "/v1/leads/company-fields", params);
     }
 
     /**
@@ -6545,7 +8175,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/lists
+     * GET /v1/lists - Lists with member counts; `count`/`offset` page them, `stats=true` adds send and unsubscribe stats
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -6615,6 +8245,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/lists/{id}/growth-history - Daily sign-ups, imports, other adds, removals, pending opt-ins and the running member total of one list
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ListsByIdGrowthHistory(Params params) {
+        return request("GET", "/v1/lists/{id}/growth-history", params);
+    }
+
+    /**
      * GET /v1/lists/{id}/members - List members, with the same filters as GET /v1/profiles
      *
      * @param params path, query, body and idempotency key; may be null
@@ -6675,7 +8315,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/lists/{id}/size-history - List size at the end of each of the last N days
+     * GET /v1/lists/{id}/size-history - List size at the end of each of the last N days, or of each day between `from` and `to`
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -6692,6 +8332,136 @@ public abstract class Operations {
      */
     public Object getV1ListsDeleted(Params params) {
         return request("GET", "/v1/lists/deleted", params);
+    }
+
+    /**
+     * GET /v1/looker/datasets - Saved reports Looker Studio can use as data sources
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LookerDatasets(Params params) {
+        return request("GET", "/v1/looker/datasets", params);
+    }
+
+    /**
+     * GET /v1/looker/manifest - Apps Script files (appsscript.json, Code.gs) for the Looker Studio community connector
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LookerManifest(Params params) {
+        return request("GET", "/v1/looker/manifest", params);
+    }
+
+    /**
+     * GET /v1/loyalty/hub - Customer hub settings and its public URL
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyHub(Params params) {
+        return request("GET", "/v1/loyalty/hub", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyPrograms(Params params) {
+        return request("GET", "/v1/loyalty/programs", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsById(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/members
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdMembers(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/members", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/members/{profileId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdMembersByProfileId(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/members/{profileId}", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/members/{profileId}/vouchers
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdMembersByProfileIdVouchers(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/members/{profileId}/vouchers", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/rewards
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdRewards(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/rewards", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/rules
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdRules(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/rules", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/tiers
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdTiers(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/tiers", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/transactions - The points ledger (append-only), newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdTransactions(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/transactions", params);
+    }
+
+    /**
+     * GET /v1/loyalty/programs/{id}/wallet - Wallet pass settings (never the certificate or keys)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1LoyaltyProgramsByIdWallet(Params params) {
+        return request("GET", "/v1/loyalty/programs/{id}/wallet", params);
     }
 
     /**
@@ -6722,6 +8492,16 @@ public abstract class Operations {
      */
     public Object getV1MarketingEvents(Params params) {
         return request("GET", "/v1/marketing-events", params);
+    }
+
+    /**
+     * GET /v1/marketing-events/apps - Event apps and their event-details URL templates
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1MarketingEventsApps(Params params) {
+        return request("GET", "/v1/marketing-events/apps", params);
     }
 
     /**
@@ -6835,7 +8615,17 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/members
+     * GET /v1/me/identities - Google/GitHub sign-ins linked to your account
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1MeIdentities(Params params) {
+        return request("GET", "/v1/me/identities", params);
+    }
+
+    /**
+     * GET /v1/members - Members of this workspace; ?email= or ?username= (display name or the part of the email before &#64;) narrows to exact matches
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -6902,6 +8692,16 @@ public abstract class Operations {
      */
     public Object getV1MessagesByIdContent(Params params) {
         return request("GET", "/v1/messages/{id}/content", params);
+    }
+
+    /**
+     * GET /v1/messages/{id}/preview - A message re-rendered for its recipient (any purpose and channel; stored content is transactional email only). Unsubscribe links stay placeh
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1MessagesByIdPreview(Params params) {
+        return request("GET", "/v1/messages/{id}/preview", params);
     }
 
     /**
@@ -7092,6 +8892,26 @@ public abstract class Operations {
      */
     public Object getV1NewsletterEngagementSurveysById(Params params) {
         return request("GET", "/v1/newsletter/engagement/surveys/{id}", params);
+    }
+
+    /**
+     * GET /v1/newsletter/engagement/surveys/{id}/responses - Individual responses (respondent, time, answers), newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1NewsletterEngagementSurveysByIdResponses(Params params) {
+        return request("GET", "/v1/newsletter/engagement/surveys/{id}/responses", params);
+    }
+
+    /**
+     * GET /v1/newsletter/engagement/surveys/{id}/responses/{respondent} - One respondent's answers
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1NewsletterEngagementSurveysByIdResponsesByRespondent(Params params) {
+        return request("GET", "/v1/newsletter/engagement/surveys/{id}/responses/{respondent}", params);
     }
 
     /**
@@ -7405,13 +9225,23 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/notes/{id}
+     * GET /v1/notes/{id} - A contact or company note by its id
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object getV1NotesById(Params params) {
         return request("GET", "/v1/notes/{id}", params);
+    }
+
+    /**
+     * GET /v1/notifications - Your in-app notifications in this workspace, newest first, with the unread count
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1Notifications(Params params) {
+        return request("GET", "/v1/notifications", params);
     }
 
     /**
@@ -7535,6 +9365,46 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/operator/settings
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OperatorSettings(Params params) {
+        return request("GET", "/v1/operator/settings", params);
+    }
+
+    /**
+     * GET /v1/operator/stats - Platform analytics: accounts, sign-ups, sessions, queue health
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OperatorStats(Params params) {
+        return request("GET", "/v1/operator/stats", params);
+    }
+
+    /**
+     * GET /v1/operator/teams - Every workspace on this instance with its organization, members and status
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OperatorTeams(Params params) {
+        return request("GET", "/v1/operator/teams", params);
+    }
+
+    /**
+     * GET /v1/operator/waitlist
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OperatorWaitlist(Params params) {
+        return request("GET", "/v1/operator/waitlist", params);
+    }
+
+    /**
      * GET /v1/ops/dlq - Failed (retries exhausted) jobs belonging to the caller's workspace
      *
      * @param params path, query, body and idempotency key; may be null
@@ -7655,6 +9525,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/outbound/booking-pages
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundBookingPages(Params params) {
+        return request("GET", "/v1/outbound/booking-pages", params);
+    }
+
+    /**
+     * GET /v1/outbound/booking-pages/{id}/bookings
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundBookingPagesByIdBookings(Params params) {
+        return request("GET", "/v1/outbound/booking-pages/{id}/bookings", params);
+    }
+
+    /**
      * GET /v1/outbound/call-dispositions
      *
      * @param params path, query, body and idempotency key; may be null
@@ -7772,6 +9662,16 @@ public abstract class Operations {
      */
     public Object getV1OutboundInboxMailSent(Params params) {
         return request("GET", "/v1/outbound/inbox-mail/sent", params);
+    }
+
+    /**
+     * GET /v1/outbound/inbox-routing
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundInboxRouting(Params params) {
+        return request("GET", "/v1/outbound/inbox-routing", params);
     }
 
     /**
@@ -7912,6 +9812,16 @@ public abstract class Operations {
      */
     public Object getV1OutboundPools(Params params) {
         return request("GET", "/v1/outbound/pools", params);
+    }
+
+    /**
+     * GET /v1/outbound/proposals - Messages proposed by AI agents, waiting for a person
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundProposals(Params params) {
+        return request("GET", "/v1/outbound/proposals", params);
     }
 
     /**
@@ -8175,6 +10085,66 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/outbound/task-types
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundTaskTypes(Params params) {
+        return request("GET", "/v1/outbound/task-types", params);
+    }
+
+    /**
+     * GET /v1/outbound/telephony - The connected Twilio Voice account (the auth token is never returned)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundTelephony(Params params) {
+        return request("GET", "/v1/outbound/telephony", params);
+    }
+
+    /**
+     * GET /v1/outbound/telephony/my-phone - Your own phone for click-to-call (Twilio rings it first)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundTelephonyMyPhone(Params params) {
+        return request("GET", "/v1/outbound/telephony/my-phone", params);
+    }
+
+    /**
+     * GET /v1/outbound/voice-clips
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1OutboundVoiceClips(Params params) {
+        return request("GET", "/v1/outbound/voice-clips", params);
+    }
+
+    /**
+     * GET /v1/page-sites
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PageSites(Params params) {
+        return request("GET", "/v1/page-sites", params);
+    }
+
+    /**
+     * GET /v1/page-sites/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PageSitesById(Params params) {
+        return request("GET", "/v1/page-sites/{id}", params);
+    }
+
+    /**
      * GET /v1/planner/goals - Business goals the planner can build a starter plan for
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8212,6 +10182,36 @@ public abstract class Operations {
      */
     public Object getV1PostalAddressesById(Params params) {
         return request("GET", "/v1/postal-addresses/{id}", params);
+    }
+
+    /**
+     * GET /v1/postal-addresses/usable - Ids of the saved addresses the caller may pick (open ones, plus those of the caller's user groups)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PostalAddressesUsable(Params params) {
+        return request("GET", "/v1/postal-addresses/usable", params);
+    }
+
+    /**
+     * GET /v1/postal-address-groups - Address id -&gt; user groups that may use it (absent = everyone)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PostalAddressGroups(Params params) {
+        return request("GET", "/v1/postal-address-groups", params);
+    }
+
+    /**
+     * GET /v1/profile-filters
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ProfileFilters(Params params) {
+        return request("GET", "/v1/profile-filters", params);
     }
 
     /**
@@ -8255,7 +10255,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/profiles/{id}/activity
+     * GET /v1/profiles/{id}/activity - Timeline, newest first; filter by activity type and by event / ref name
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -8285,7 +10285,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/profiles/{id}/companies - The company this contact belongs to (at most one)
+     * GET /v1/profiles/{id}/companies - Every company this contact is linked to, primary first, with the link fields
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -8312,6 +10312,16 @@ public abstract class Operations {
      */
     public Object getV1ProfilesByIdContactPrefs(Params params) {
         return request("GET", "/v1/profiles/{id}/contact-prefs", params);
+    }
+
+    /**
+     * GET /v1/profiles/{id}/crm - CRM records this contact is linked to
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ProfilesByIdCrm(Params params) {
+        return request("GET", "/v1/profiles/{id}/crm", params);
     }
 
     /**
@@ -8345,6 +10355,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/profiles/{id}/files
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ProfilesByIdFiles(Params params) {
+        return request("GET", "/v1/profiles/{id}/files", params);
+    }
+
+    /**
      * GET /v1/profiles/{id}/geo-ips
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8362,6 +10382,16 @@ public abstract class Operations {
      */
     public Object getV1ProfilesByIdIdentifiers(Params params) {
         return request("GET", "/v1/profiles/{id}/identifiers", params);
+    }
+
+    /**
+     * GET /v1/profiles/{id}/inbox - A contact's inbox, including read and deleted messages
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ProfilesByIdInbox(Params params) {
+        return request("GET", "/v1/profiles/{id}/inbox", params);
     }
 
     /**
@@ -8585,6 +10615,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/public/booking/{ws}/{slug}/slots - Open start times of a booking page (JSON)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PublicBookingByWsBySlugSlots(Params params) {
+        return request("GET", "/v1/public/booking/{ws}/{slug}/slots", params);
+    }
+
+    /**
      * GET /v1/public/brand - Name, logo and colours for a verified dashboard host (null otherwise)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8615,6 +10655,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/push/live - Live notifications, newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PushLive(Params params) {
+        return request("GET", "/v1/push/live", params);
+    }
+
+    /**
+     * GET /v1/push/live/{id} - One live notification and its status
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1PushLiveById(Params params) {
+        return request("GET", "/v1/push/live/{id}", params);
+    }
+
+    /**
      * GET /v1/push/stats - Push sends, deliveries, failures, opens and retired devices for a window
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8642,6 +10702,16 @@ public abstract class Operations {
      */
     public Object getV1PushTokensById(Params params) {
         return request("GET", "/v1/push-tokens/{id}", params);
+    }
+
+    /**
+     * GET /v1/qa-preview/clients - Mail clients the connected preview service offers, and its credit balance when it reports one
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1QaPreviewClients(Params params) {
+        return request("GET", "/v1/qa-preview/clients", params);
     }
 
     /**
@@ -8705,7 +10775,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/reports
+     * GET /v1/reports - Sent campaigns with opens, clicks, bounces, unsubscribes, complaints and rates; filter by channel, type and send time
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -8715,7 +10785,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/reports/{id}
+     * GET /v1/reports/{id} - One campaign report: domains, locations by country and region, links, abuse, revenue, rates, list-average and industry comparison, and the s
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -8765,6 +10835,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/reports/{id}/links - Every link: clicks, unique clickers, last click, share of all clicks, and the split per A/B variant
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ReportsByIdLinks(Params params) {
+        return request("GET", "/v1/reports/{id}/links", params);
+    }
+
+    /**
      * GET /v1/reports/{id}/products
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8775,13 +10855,43 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/reports/{id}/sub-reports
+     * GET /v1/reports/{id}/share-stats - Views, unique visitors, referrers and link clicks of the public share link
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ReportsByIdShareStats(Params params) {
+        return request("GET", "/v1/reports/{id}/share-stats", params);
+    }
+
+    /**
+     * GET /v1/reports/{id}/sub-reports - A/B variants, resends and RSS issues of this campaign
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object getV1ReportsByIdSubReports(Params params) {
         return request("GET", "/v1/reports/{id}/sub-reports", params);
+    }
+
+    /**
+     * GET /v1/reports/{id}/unsubscribed - Who unsubscribed from this campaign, when, and how (link, List-Unsubscribe header, reply ...)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ReportsByIdUnsubscribed(Params params) {
+        return request("GET", "/v1/reports/{id}/unsubscribed", params);
+    }
+
+    /**
+     * GET /v1/review-feeds/google - URLs of the Google Shopping product reviews feed (XML, schema 2.3, 5,000 reviews per file) to give Merchant Center
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ReviewFeedsGoogle(Params params) {
+        return request("GET", "/v1/review-feeds/google", params);
     }
 
     /**
@@ -8825,6 +10935,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/review-settings - Review-for-coupon incentive
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ReviewSettings(Params params) {
+        return request("GET", "/v1/review-settings", params);
+    }
+
+    /**
      * GET /v1/roles
      *
      * @param params path, query, body and idempotency key; may be null
@@ -8865,7 +10985,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/saved-sections
+     * GET /v1/saved-sections - Filter by name, block type and created / updated dates; sort newest, oldest, name or updated
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -8912,6 +11032,16 @@ public abstract class Operations {
      */
     public Object getV1ScoresById(Params params) {
         return request("GET", "/v1/scores/{id}", params);
+    }
+
+    /**
+     * GET /v1/scores/{id}/companies - Company scores rolled up from their contacts (sum, max or average), highest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1ScoresByIdCompanies(Params params) {
+        return request("GET", "/v1/scores/{id}/companies", params);
     }
 
     /**
@@ -9025,7 +11155,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/segments/{id}/export - Current members as CSV text (first 50,000)
+     * GET /v1/segments/{id}/export - Current members as CSV text (first 50,000); POST /v1/segments/:id/export-jobs exports every member as a file
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -9055,13 +11185,23 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/segments/{id}/members
+     * GET /v1/segments/{id}/members - Current members with the time each joined; filter by email, phone or join date, sort by join date
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object getV1SegmentsByIdMembers(Params params) {
         return request("GET", "/v1/segments/{id}/members", params);
+    }
+
+    /**
+     * GET /v1/segments/{id}/objects - Members of an object segment, each with the profiles linked to it
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SegmentsByIdObjects(Params params) {
+        return request("GET", "/v1/segments/{id}/objects", params);
     }
 
     /**
@@ -9175,6 +11315,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/senders/{id}/signing - S/MIME certificate and PGP signing key of an email sender (metadata only; private parts never leave the vault)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SendersByIdSigning(Params params) {
+        return request("GET", "/v1/senders/{id}/signing", params);
+    }
+
+    /**
      * GET /v1/senders/{id}/stats
      *
      * @param params path, query, body and idempotency key; may be null
@@ -9215,6 +11365,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/shared-object-schemas - Object schemas shared across the workspaces of this organization
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SharedObjectSchemas(Params params) {
+        return request("GET", "/v1/shared-object-schemas", params);
+    }
+
+    /**
      * GET /v1/shares/{type}/{id} - Who a list, template, campaign or segment is shared with (none = open to all roles that can use it)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -9242,6 +11402,26 @@ public abstract class Operations {
      */
     public Object getV1SignupDomains(Params params) {
         return request("GET", "/v1/signup-domains", params);
+    }
+
+    /**
+     * GET /v1/site-messages
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SiteMessages(Params params) {
+        return request("GET", "/v1/site-messages", params);
+    }
+
+    /**
+     * GET /v1/site-messages/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SiteMessagesById(Params params) {
+        return request("GET", "/v1/site-messages/{id}", params);
     }
 
     /**
@@ -9282,6 +11462,36 @@ public abstract class Operations {
      */
     public Object getV1SitesByIdHealth(Params params) {
         return request("GET", "/v1/sites/{id}/health", params);
+    }
+
+    /**
+     * GET /v1/slack/installs - Slack workspaces the app is installed in
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SlackInstalls(Params params) {
+        return request("GET", "/v1/slack/installs", params);
+    }
+
+    /**
+     * GET /v1/slack/sends - Recent Slack sends with their outcome
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SlackSends(Params params) {
+        return request("GET", "/v1/slack/sends", params);
+    }
+
+    /**
+     * GET /v1/slack/templates - Slack message templates
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SlackTemplates(Params params) {
+        return request("GET", "/v1/slack/templates", params);
     }
 
     /**
@@ -9465,6 +11675,66 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/social/accounts - Connected social accounts
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SocialAccounts(Params params) {
+        return request("GET", "/v1/social/accounts", params);
+    }
+
+    /**
+     * GET /v1/social/apps - Which networks (and Slack) can be connected by sign-in on this install
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SocialApps(Params params) {
+        return request("GET", "/v1/social/apps", params);
+    }
+
+    /**
+     * GET /v1/social/oauth/pending/{id} - Pages and accounts a finished sign-in can post as, to pick from (yours, for 15 minutes)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SocialOauthPendingById(Params params) {
+        return request("GET", "/v1/social/oauth/pending/{id}", params);
+    }
+
+    /**
+     * GET /v1/social/posts - Posts scheduled or published in a date range (the calendar)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SocialPosts(Params params) {
+        return request("GET", "/v1/social/posts", params);
+    }
+
+    /**
+     * GET /v1/social/posts/{id} - One post with its publish status and metrics
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SocialPostsById(Params params) {
+        return request("GET", "/v1/social/posts/{id}", params);
+    }
+
+    /**
+     * GET /v1/social/posts/{id}/comments - Comments on a published post (pulled with its metrics)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SocialPostsByIdComments(Params params) {
+        return request("GET", "/v1/social/posts/{id}/comments", params);
+    }
+
+    /**
      * GET /v1/soft-bounce-allowlist
      *
      * @param params path, query, body and idempotency key; may be null
@@ -9605,6 +11875,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/sql-sources
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SqlSources(Params params) {
+        return request("GET", "/v1/sql-sources", params);
+    }
+
+    /**
+     * GET /v1/sql-sources/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1SqlSourcesById(Params params) {
+        return request("GET", "/v1/sql-sources/{id}", params);
+    }
+
+    /**
      * GET /v1/sso
      *
      * @param params path, query, body and idempotency key; may be null
@@ -9662,6 +11952,16 @@ public abstract class Operations {
      */
     public Object getV1Stages(Params params) {
         return request("GET", "/v1/stages", params);
+    }
+
+    /**
+     * GET /v1/standard-fields - Required / visible / default settings of email, first name, last name and phone
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1StandardFields(Params params) {
+        return request("GET", "/v1/standard-fields", params);
     }
 
     /**
@@ -9805,7 +12105,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/templates
+     * GET /v1/templates - Filter by channel, folder, tag, text, creator (`createdBy=me`), format and creation date; sort newest, oldest, name or updated
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -9822,6 +12122,16 @@ public abstract class Operations {
      */
     public Object getV1TemplatesById(Params params) {
         return request("GET", "/v1/templates/{id}", params);
+    }
+
+    /**
+     * GET /v1/templates/{id}/client-preview-runs - Inbox preview run history for a template, newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1TemplatesByIdClientPreviewRuns(Params params) {
+        return request("GET", "/v1/templates/{id}/client-preview-runs", params);
     }
 
     /**
@@ -9852,6 +12162,16 @@ public abstract class Operations {
      */
     public Object getV1TemplatesByIdLanguagesByLocale(Params params) {
         return request("GET", "/v1/templates/{id}/languages/{locale}", params);
+    }
+
+    /**
+     * GET /v1/templates/{id}/optimizer - Writing checks on the saved version, weighed by how similar senders' email campaigns perform (peer benchmarks, or the static reference range
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1TemplatesByIdOptimizer(Params params) {
+        return request("GET", "/v1/templates/{id}/optimizer", params);
     }
 
     /**
@@ -9965,7 +12285,7 @@ public abstract class Operations {
     }
 
     /**
-     * GET /v1/topics
+     * GET /v1/topics - Topics; `groupId` filters by group, `counts=true` adds how many people are subscribed to each
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -10092,6 +12412,16 @@ public abstract class Operations {
      */
     public Object getV1TransactionalDefinitionsByIdTranslations(Params params) {
         return request("GET", "/v1/transactional/definitions/{id}/translations", params);
+    }
+
+    /**
+     * GET /v1/transactional/metadata-fields - Declared metadata keys shown as message-log columns, each with an optional view template ({{ value }})
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1TransactionalMetadataFields(Params params) {
+        return request("GET", "/v1/transactional/metadata-fields", params);
     }
 
     /**
@@ -10222,6 +12552,26 @@ public abstract class Operations {
      */
     public Object getV1UserGroupsById(Params params) {
         return request("GET", "/v1/user-groups/{id}", params);
+    }
+
+    /**
+     * GET /v1/user-groups/{id}/access
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1UserGroupsByIdAccess(Params params) {
+        return request("GET", "/v1/user-groups/{id}/access", params);
+    }
+
+    /**
+     * GET /v1/version - Running version, whether a newer release exists, and the operator banner
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1Version(Params params) {
+        return request("GET", "/v1/version", params);
     }
 
     /**
@@ -10415,6 +12765,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/webhook-templates/{id}/inputs/{key}/options - Dropdown values for an enum input (fixed options, or loaded from its options URL)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WebhookTemplatesByIdInputsByKeyOptions(Params params) {
+        return request("GET", "/v1/webhook-templates/{id}/inputs/{key}/options", params);
+    }
+
+    /**
      * GET /v1/webhook-templates/{id}/revisions - Every saved state of a call template / custom action, newest first
      *
      * @param params path, query, body and idempotency key; may be null
@@ -10432,6 +12792,46 @@ public abstract class Operations {
      */
     public Object getV1WebhookTemplatesByIdRevisionsByRevisionId(Params params) {
         return request("GET", "/v1/webhook-templates/{id}/revisions/{revisionId}", params);
+    }
+
+    /**
+     * GET /v1/whatsapp/connections/{connectionId}/account - Business and phone-number status, messaging-limit tier and the raw quality rating, read live from Meta
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WhatsappConnectionsByConnectionIdAccount(Params params) {
+        return request("GET", "/v1/whatsapp/connections/{connectionId}/account", params);
+    }
+
+    /**
+     * GET /v1/whatsapp/flows - WhatsApp Flows
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WhatsappFlows(Params params) {
+        return request("GET", "/v1/whatsapp/flows", params);
+    }
+
+    /**
+     * GET /v1/whatsapp/flows/{id} - One Flow
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WhatsappFlowsById(Params params) {
+        return request("GET", "/v1/whatsapp/flows/{id}", params);
+    }
+
+    /**
+     * GET /v1/whatsapp/flows/{id}/runs - Who was sent the Flow and what they answered
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WhatsappFlowsByIdRuns(Params params) {
+        return request("GET", "/v1/whatsapp/flows/{id}/runs", params);
     }
 
     /**
@@ -10455,6 +12855,16 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/whatsapp/templates/{id} - One registered template with its approval status (refresh=true pulls the latest status from the provider first)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WhatsappTemplatesById(Params params) {
+        return request("GET", "/v1/whatsapp/templates/{id}", params);
+    }
+
+    /**
      * GET /v1/whatsapp/window/{id} - Is the 24-hour session window open for this contact (can free text be sent)?
      *
      * @param params path, query, body and idempotency key; may be null
@@ -10472,6 +12882,26 @@ public abstract class Operations {
      */
     public Object getV1WhiteLabel(Params params) {
         return request("GET", "/v1/white-label", params);
+    }
+
+    /**
+     * GET /v1/workflow-custom-types - The workspace's own action and trigger types (palette and trigger picker)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WorkflowCustomTypes(Params params) {
+        return request("GET", "/v1/workflow-custom-types", params);
+    }
+
+    /**
+     * GET /v1/workflow-custom-types/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WorkflowCustomTypesById(Params params) {
+        return request("GET", "/v1/workflow-custom-types/{id}", params);
     }
 
     /**
@@ -10532,6 +12962,16 @@ public abstract class Operations {
      */
     public Object getV1WorkflowsByIdEnrollmentsByEnrollmentIdSteps(Params params) {
         return request("GET", "/v1/workflows/{id}/enrollments/{enrollmentId}/steps", params);
+    }
+
+    /**
+     * GET /v1/workflows/{id}/entry-skips - People who could not enter (journey not live, outside its window, no start step, profile gone, cap reached), newest first
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WorkflowsByIdEntrySkips(Params params) {
+        return request("GET", "/v1/workflows/{id}/entry-skips", params);
     }
 
     /**
@@ -10745,6 +13185,26 @@ public abstract class Operations {
     }
 
     /**
+     * GET /v1/workspaces/current/resets
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WorkspacesCurrentResets(Params params) {
+        return request("GET", "/v1/workspaces/current/resets", params);
+    }
+
+    /**
+     * GET /v1/workspaces/current/resets/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getV1WorkspacesCurrentResetsById(Params params) {
+        return request("GET", "/v1/workspaces/current/resets/{id}", params);
+    }
+
+    /**
      * GET /v1/workspaces/current/schedule-for-removal - When this workspace will be erased, if its removal is scheduled
      *
      * @param params path, query, body and idempotency key; may be null
@@ -10762,6 +13222,56 @@ public abstract class Operations {
      */
     public Object getV1WorkspaceTestMode(Params params) {
         return request("GET", "/v1/workspace/test-mode", params);
+    }
+
+    /**
+     * GET /wallet/apple/{ws}/v1/devices/{device}/registrations/{passType} - Serial numbers of this device's passes changed since the tag
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getWalletAppleByWsV1DevicesByDeviceRegistrationsByPassType(Params params) {
+        return request("GET", "/wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}", params);
+    }
+
+    /**
+     * GET /wallet/apple/{ws}/v1/passes/{passType}/{serial} - The latest version of a pass
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getWalletAppleByWsV1PassesByPassTypeBySerial(Params params) {
+        return request("GET", "/wallet/apple/{ws}/v1/passes/{passType}/{serial}", params);
+    }
+
+    /**
+     * GET /wallet/install/{token} - Add a pass to Apple Wallet (download) or Google Wallet (redirect)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getWalletInstallByToken(Params params) {
+        return request("GET", "/wallet/install/{token}", params);
+    }
+
+    /**
+     * GET /wallet/logo/{ws}/{file} - A programme's wallet logo (Google Wallet fetches it from here)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getWalletLogoByWsByFile(Params params) {
+        return request("GET", "/wallet/logo/{ws}/{file}", params);
+    }
+
+    /**
+     * GET /webhooks/ads/meta/leadgen - Meta leadgen webhook verification handshake
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object getWebhooksAdsMetaLeadgen(Params params) {
+        return request("GET", "/webhooks/ads/meta/leadgen", params);
     }
 
     /**
@@ -10825,6 +13335,26 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/ads/campaigns/{id} - Edit a draft campaign
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1AdsCampaignsById(Params params) {
+        return request("PATCH", "/v1/ads/campaigns/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/ads/lead-syncs/{id} - Pause or remap a lead-ad sync
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1AdsLeadSyncsById(Params params) {
+        return request("PATCH", "/v1/ads/lead-syncs/{id}", params);
+    }
+
+    /**
      * PATCH /v1/agency/clients/{workspaceId} - Rename a client workspace from the agency
      *
      * @param params path, query, body and idempotency key; may be null
@@ -10832,6 +13362,36 @@ public abstract class Operations {
      */
     public Object patchV1AgencyClientsByWorkspaceId(Params params) {
         return request("PATCH", "/v1/agency/clients/{workspaceId}", params);
+    }
+
+    /**
+     * PATCH /v1/ai-agents/{id} - Rename, switch on or off, turn auto-send on or off, or change its settings
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1AiAgentsById(Params params) {
+        return request("PATCH", "/v1/ai-agents/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/ai-agents/{id}/guidances/{guidanceId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1AiAgentsByIdGuidancesByGuidanceId(Params params) {
+        return request("PATCH", "/v1/ai-agents/{id}/guidances/{guidanceId}", params);
+    }
+
+    /**
+     * PATCH /v1/ai-agents/items/{id} - Edit a pending draft before approving it
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1AiAgentsItemsById(Params params) {
+        return request("PATCH", "/v1/ai-agents/items/{id}", params);
     }
 
     /**
@@ -10912,6 +13472,16 @@ public abstract class Operations {
      */
     public Object patchV1AssetsById(Params params) {
         return request("PATCH", "/v1/assets/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/association-labels/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1AssociationLabelsById(Params params) {
+        return request("PATCH", "/v1/association-labels/{id}", params);
     }
 
     /**
@@ -11005,6 +13575,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/calendar-feeds/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1CalendarFeedsById(Params params) {
+        return request("PATCH", "/v1/calendar-feeds/{id}", params);
+    }
+
+    /**
      * PATCH /v1/calendar/mine/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11032,6 +13612,26 @@ public abstract class Operations {
      */
     public Object patchV1CampaignsById(Params params) {
         return request("PATCH", "/v1/campaigns/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/campaigns/{id}/audiences/{audienceId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1CampaignsByIdAudiencesByAudienceId(Params params) {
+        return request("PATCH", "/v1/campaigns/{id}/audiences/{audienceId}", params);
+    }
+
+    /**
+     * PATCH /v1/campaigns/{id}/drafts/{draftId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1CampaignsByIdDraftsByDraftId(Params params) {
+        return request("PATCH", "/v1/campaigns/{id}/drafts/{draftId}", params);
     }
 
     /**
@@ -11155,6 +13755,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/commerce/stores/{storeId}/products/{productId} - Change only the fields sent
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1CommerceStoresByStoreIdProductsByProductId(Params params) {
+        return request("PATCH", "/v1/commerce/stores/{storeId}/products/{productId}", params);
+    }
+
+    /**
      * PATCH /v1/commerce/stores/{storeId}/products/{productId}/images/{imageId}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11162,6 +13772,16 @@ public abstract class Operations {
      */
     public Object patchV1CommerceStoresByStoreIdProductsByProductIdImagesByImageId(Params params) {
         return request("PATCH", "/v1/commerce/stores/{storeId}/products/{productId}/images/{imageId}", params);
+    }
+
+    /**
+     * PATCH /v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId} - Change only the fields sent
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1CommerceStoresByStoreIdProductsByProductIdVariantsByVariantId(Params params) {
+        return request("PATCH", "/v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId}", params);
     }
 
     /**
@@ -11265,6 +13885,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/destinations/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1DestinationsById(Params params) {
+        return request("PATCH", "/v1/destinations/{id}", params);
+    }
+
+    /**
      * PATCH /v1/emails/{id}/draft - Edit the draft; refused once the email is sending or sent
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11312,6 +13942,16 @@ public abstract class Operations {
      */
     public Object patchV1ImportSchedulesById(Params params) {
         return request("PATCH", "/v1/import-schedules/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/in-app-components/{id} - Edit a component
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1InAppComponentsById(Params params) {
+        return request("PATCH", "/v1/in-app-components/{id}", params);
     }
 
     /**
@@ -11375,6 +14015,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/leads/companies/{id}/notes/{noteId} - Edit a company note
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1LeadsCompaniesByIdNotesByNoteId(Params params) {
+        return request("PATCH", "/v1/leads/companies/{id}/notes/{noteId}", params);
+    }
+
+    /**
      * PATCH /v1/leads/companies/{id}/stage - Account stage and owner; written through to the outbound account so do-not-contact gates enrollment
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11382,6 +14032,16 @@ public abstract class Operations {
      */
     public Object patchV1LeadsCompaniesByIdStage(Params params) {
         return request("PATCH", "/v1/leads/companies/{id}/stage", params);
+    }
+
+    /**
+     * PATCH /v1/leads/company-fields/{key}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1LeadsCompanyFieldsByKey(Params params) {
+        return request("PATCH", "/v1/leads/company-fields/{key}", params);
     }
 
     /**
@@ -11432,6 +14092,46 @@ public abstract class Operations {
      */
     public Object patchV1ListsById(Params params) {
         return request("PATCH", "/v1/lists/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/loyalty/programs/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1LoyaltyProgramsById(Params params) {
+        return request("PATCH", "/v1/loyalty/programs/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/loyalty/programs/{id}/rewards/{subId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1LoyaltyProgramsByIdRewardsBySubId(Params params) {
+        return request("PATCH", "/v1/loyalty/programs/{id}/rewards/{subId}", params);
+    }
+
+    /**
+     * PATCH /v1/loyalty/programs/{id}/rules/{subId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1LoyaltyProgramsByIdRulesBySubId(Params params) {
+        return request("PATCH", "/v1/loyalty/programs/{id}/rules/{subId}", params);
+    }
+
+    /**
+     * PATCH /v1/loyalty/programs/{id}/tiers/{subId}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1LoyaltyProgramsByIdTiersBySubId(Params params) {
+        return request("PATCH", "/v1/loyalty/programs/{id}/tiers/{subId}", params);
     }
 
     /**
@@ -11495,7 +14195,7 @@ public abstract class Operations {
     }
 
     /**
-     * PATCH /v1/newsletter/engagement/surveys/{id} - Rename, describe, open or close
+     * PATCH /v1/newsletter/engagement/surveys/{id} - Rename, describe, open or close, link a list, set the thank-you, turn the anonymous link on or off, edit questions
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -11575,6 +14275,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/operator/settings - Instance settings: sign-up open / waitlist / closed, required email verification for new accounts, a banner for every user
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1OperatorSettings(Params params) {
+        return request("PATCH", "/v1/operator/settings", params);
+    }
+
+    /**
      * PATCH /v1/outbound/accounts/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11635,13 +14345,23 @@ public abstract class Operations {
     }
 
     /**
-     * PATCH /v1/outbound/tasks/{id} - Edit title, notes or due date of an open task
+     * PATCH /v1/outbound/tasks/{id} - Edit an open task: title, notes, due date, kind, type, links and reminder
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object patchV1OutboundTasksById(Params params) {
         return request("PATCH", "/v1/outbound/tasks/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/page-sites/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1PageSitesById(Params params) {
+        return request("PATCH", "/v1/page-sites/{id}", params);
     }
 
     /**
@@ -11665,7 +14385,7 @@ public abstract class Operations {
     }
 
     /**
-     * PATCH /v1/profiles/{id}
+     * PATCH /v1/profiles/{id} - Update a contact; `tags` adds tags and `subscriptions` sets email / SMS marketing status through the consent ledger
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -11695,6 +14415,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/push/live/{id} - Update what the live notification shows
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1PushLiveById(Params params) {
+        return request("PATCH", "/v1/push/live/{id}", params);
+    }
+
+    /**
      * PATCH /v1/referral-programs/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11705,7 +14435,7 @@ public abstract class Operations {
     }
 
     /**
-     * PATCH /v1/reviews/{id} - Moderate: pending | published | rejected
+     * PATCH /v1/reviews/{id} - Moderate (pending | published | featured | unpublished | rejected), reply publicly, or edit rating, text, images and type
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -11765,6 +14495,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/site-messages/{id} - Edit, publish (status) or archive
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1SiteMessagesById(Params params) {
+        return request("PATCH", "/v1/site-messages/{id}", params);
+    }
+
+    /**
      * PATCH /v1/sites/{id} - Rename, change domain, or enable/disable tracking (the pixel)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11815,6 +14555,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/social/posts/{id} - Edit or reschedule a draft or scheduled post
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1SocialPostsById(Params params) {
+        return request("PATCH", "/v1/social/posts/{id}", params);
+    }
+
+    /**
      * PATCH /v1/sponsors/advertisers/{id} - Edit an advertiser
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11842,6 +14592,16 @@ public abstract class Operations {
      */
     public Object patchV1SponsorsCreativesById(Params params) {
         return request("PATCH", "/v1/sponsors/creatives/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/sql-sources/{id} - Edit; a blank password or token keeps the stored one
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1SqlSourcesById(Params params) {
+        return request("PATCH", "/v1/sql-sources/{id}", params);
     }
 
     /**
@@ -11935,6 +14695,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/transactional/metadata-fields/{name}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1TransactionalMetadataFieldsByName(Params params) {
+        return request("PATCH", "/v1/transactional/metadata-fields/{name}", params);
+    }
+
+    /**
      * PATCH /v1/translations/{id}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11975,6 +14745,16 @@ public abstract class Operations {
     }
 
     /**
+     * PATCH /v1/whatsapp/flows/{id} - Edit a Flow (its JSON only before publishing)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1WhatsappFlowsById(Params params) {
+        return request("PATCH", "/v1/whatsapp/flows/{id}", params);
+    }
+
+    /**
      * PATCH /v1/whatsapp/templates/{id} - Edit a draft or rejected template (any field) or an approved one (merge values only); the linked Hermetica template follows
      *
      * @param params path, query, body and idempotency key; may be null
@@ -11982,6 +14762,16 @@ public abstract class Operations {
      */
     public Object patchV1WhatsappTemplatesById(Params params) {
         return request("PATCH", "/v1/whatsapp/templates/{id}", params);
+    }
+
+    /**
+     * PATCH /v1/workflow-custom-types/{id} - Rename, change fields, or archive (archived types leave the palette but keep running)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object patchV1WorkflowCustomTypesById(Params params) {
+        return request("PATCH", "/v1/workflow-custom-types/{id}", params);
     }
 
     /**
@@ -12035,6 +14825,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /book/{ws}/{slug} - Book a time on a booking page (consent is recorded only when the visitor ticks the box)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postBookByWsBySlug(Params params) {
+        return request("POST", "/book/{ws}/{slug}", params);
+    }
+
+    /**
+     * POST /client/geofence-events - The app entered, left or dwelled in a geofence: recorded as geofence_entered / geofence_exited / geofence_dwelled
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postClientGeofenceEvents(Params params) {
+        return request("POST", "/client/geofence-events", params);
+    }
+
+    /**
      * POST /client/in-app-events - Report impressions, clicks and dismissals
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12042,6 +14852,46 @@ public abstract class Operations {
      */
     public Object postClientInAppEvents(Params params) {
         return request("POST", "/client/in-app-events", params);
+    }
+
+    /**
+     * POST /client/in-app-trackers/{id}/events - The component reports an event; the journey waiting on it moves on
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postClientInAppTrackersByIdEvents(Params params) {
+        return request("POST", "/client/in-app-trackers/{id}/events", params);
+    }
+
+    /**
+     * POST /client/inbox/{id}/delete - Delete an inbox message for the contact
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postClientInboxByIdDelete(Params params) {
+        return request("POST", "/client/inbox/{id}/delete", params);
+    }
+
+    /**
+     * POST /client/inbox/{id}/read - Mark an inbox message read or unread
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postClientInboxByIdRead(Params params) {
+        return request("POST", "/client/inbox/{id}/read", params);
+    }
+
+    /**
+     * POST /client/push-live-tokens - The app reports an ActivityKit push-to-start token or a running activity's update token
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postClientPushLiveTokens(Params params) {
+        return request("POST", "/client/push-live-tokens", params);
     }
 
     /**
@@ -12085,6 +14935,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /e/s/{ws}/{token} - Submit answers through the anonymous survey link
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postESByWsByToken(Params params) {
+        return request("POST", "/e/s/{ws}/{token}", params);
+    }
+
+    /**
      * POST /e/survey/{ws}/{id} - Submit (or change) survey answers
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12102,6 +14962,96 @@ public abstract class Operations {
      */
     public Object postEVByPollByOptWildcard(Params params) {
         return request("POST", "/e/v/{poll}/{opt}/{*}", params);
+    }
+
+    /**
+     * POST /hub/{ws}/api/link - Email a hub sign-in link (same reply whether or not the address is known)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsApiLink(Params params) {
+        return request("POST", "/hub/{ws}/api/link", params);
+    }
+
+    /**
+     * POST /hub/{ws}/api/redeem - Spend the shopper's points on a reward. Send your own `key` (8-64 of A-Z a-z 0-9 _ -) per redemption: a retry with the same key spends once
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsApiRedeem(Params params) {
+        return request("POST", "/hub/{ws}/api/redeem", params);
+    }
+
+    /**
+     * POST /hub/{ws}/api/session - Swap the emailed link token for a 7-day session token
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsApiSession(Params params) {
+        return request("POST", "/hub/{ws}/api/session", params);
+    }
+
+    /**
+     * POST /hub/{ws}/api/wishlist
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsApiWishlist(Params params) {
+        return request("POST", "/hub/{ws}/api/wishlist", params);
+    }
+
+    /**
+     * POST /hub/{ws}/redeem
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsRedeem(Params params) {
+        return request("POST", "/hub/{ws}/redeem", params);
+    }
+
+    /**
+     * POST /hub/{ws}/signin
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsSignin(Params params) {
+        return request("POST", "/hub/{ws}/signin", params);
+    }
+
+    /**
+     * POST /hub/{ws}/signout
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsSignout(Params params) {
+        return request("POST", "/hub/{ws}/signout", params);
+    }
+
+    /**
+     * POST /hub/{ws}/wishlist
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsWishlist(Params params) {
+        return request("POST", "/hub/{ws}/wishlist", params);
+    }
+
+    /**
+     * POST /hub/{ws}/wishlist/remove
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postHubByWsWishlistRemove(Params params) {
+        return request("POST", "/hub/{ws}/wishlist/remove", params);
     }
 
     /**
@@ -12165,6 +15115,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /ingest/v1/reviews/media - Upload one review photo (multipart field "file"; JPEG, PNG, WebP or GIF); send the returned URL in the review's images
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postIngestV1ReviewsMedia(Params params) {
+        return request("POST", "/ingest/v1/reviews/media", params);
+    }
+
+    /**
      * POST /ingest/v1/segment - Segment/RudderStack-compatible track, identify, page
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12172,6 +15132,16 @@ public abstract class Operations {
      */
     public Object postIngestV1Segment(Params params) {
         return request("POST", "/ingest/v1/segment", params);
+    }
+
+    /**
+     * POST /ingest/v1/site-messages/{id}/shown - The visitor saw a site message (a queued one stops showing)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postIngestV1SiteMessagesByIdShown(Params params) {
+        return request("POST", "/ingest/v1/site-messages/{id}/shown", params);
     }
 
     /**
@@ -12192,6 +15162,16 @@ public abstract class Operations {
      */
     public Object postLCWildcard(Params params) {
         return request("POST", "/l/c/{*}", params);
+    }
+
+    /**
+     * POST /mcp - Hosted MCP server (JSON-RPC over HTTP). Authenticate with a secret key; tools the key's scopes do not cover are hidden and refused.
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postMcp(Params params) {
+        return request("POST", "/mcp", params);
     }
 
     /**
@@ -12455,6 +15435,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /u/resubscribe/{*} - Undo an unsubscribe from the same signed link: records a new opt-in in the consent ledger and lifts only that unsubscribe
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postUResubscribeWildcard(Params params) {
+        return request("POST", "/u/resubscribe/{*}", params);
+    }
+
+    /**
      * POST /u/{*} - Unsubscribe (RFC 8058 one-click); idempotent
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12505,6 +15495,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/ads/accounts/{id}/objects/refresh - Pull ad objects and insights now
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AdsAccountsByIdObjectsRefresh(Params params) {
+        return request("POST", "/v1/ads/accounts/{id}/objects/refresh", params);
+    }
+
+    /**
      * POST /v1/ads/audiences - Sync a segment to an ad platform audience; the first run starts at once
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12522,6 +15522,56 @@ public abstract class Operations {
      */
     public Object postV1AdsAudiencesByIdSync(Params params) {
         return request("POST", "/v1/ads/audiences/{id}/sync", params);
+    }
+
+    /**
+     * POST /v1/ads/campaigns - Draft a campaign (budget, schedule, targeting, creative); nothing is sent until it is pushed
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AdsCampaigns(Params params) {
+        return request("POST", "/v1/ads/campaigns", params);
+    }
+
+    /**
+     * POST /v1/ads/campaigns/{id}/budget - Change the daily budget and end date
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AdsCampaignsByIdBudget(Params params) {
+        return request("POST", "/v1/ads/campaigns/{id}/budget", params);
+    }
+
+    /**
+     * POST /v1/ads/campaigns/{id}/push - Create the campaign on the platform (paused)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AdsCampaignsByIdPush(Params params) {
+        return request("POST", "/v1/ads/campaigns/{id}/push", params);
+    }
+
+    /**
+     * POST /v1/ads/campaigns/{id}/status - Activate, pause or archive the campaign on the platform
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AdsCampaignsByIdStatus(Params params) {
+        return request("POST", "/v1/ads/campaigns/{id}/status", params);
+    }
+
+    /**
+     * POST /v1/ads/lead-syncs - Sync a lead-ad form into a form. Consent is recorded only from the mapped consent checkboxes
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AdsLeadSyncs(Params params) {
+        return request("POST", "/v1/ads/lead-syncs", params);
     }
 
     /**
@@ -12582,6 +15632,16 @@ public abstract class Operations {
      */
     public Object postV1AgencyClientsByWorkspaceIdDelete(Params params) {
         return request("POST", "/v1/agency/clients/{workspaceId}/delete", params);
+    }
+
+    /**
+     * POST /v1/agency/clients/{workspaceId}/handoff - Single-use login link into a client workspace (valid 5 minutes, audited in the client workspace)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AgencyClientsByWorkspaceIdHandoff(Params params) {
+        return request("POST", "/v1/agency/clients/{workspaceId}/handoff", params);
     }
 
     /**
@@ -12685,6 +15745,76 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/agency/transfer - Copy a segment, list or form from the current workspace into another workspace of the same agency (templates and journeys: /v1/agency/copy-t
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AgencyTransfer(Params params) {
+        return request("POST", "/v1/agency/transfer", params);
+    }
+
+    /**
+     * POST /v1/ai-agents - Create an agent. It starts switched off and review-only
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiAgents(Params params) {
+        return request("POST", "/v1/ai-agents", params);
+    }
+
+    /**
+     * POST /v1/ai-agents/{id}/guidances - Add a guidance rule (at most 10 per agent)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiAgentsByIdGuidances(Params params) {
+        return request("POST", "/v1/ai-agents/{id}/guidances", params);
+    }
+
+    /**
+     * POST /v1/ai-agents/{id}/run - Run the agent now instead of waiting for its next pass. Drafts go to the review feed unless auto-send is on
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiAgentsByIdRun(Params params) {
+        return request("POST", "/v1/ai-agents/{id}/run", params);
+    }
+
+    /**
+     * POST /v1/ai-agents/items/bulk-decide
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiAgentsItemsBulkDecide(Params params) {
+        return request("POST", "/v1/ai-agents/items/bulk-decide", params);
+    }
+
+    /**
+     * POST /v1/ai-agents/items/bulk-delete - Delete items from the feed; a deleted draft is never sent
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiAgentsItemsBulkDelete(Params params) {
+        return request("POST", "/v1/ai-agents/items/bulk-delete", params);
+    }
+
+    /**
+     * POST /v1/ai-agents/items/{id}/decide - Approve (sends through consent and suppression; a blocked recipient ends as blocked) or reject (nothing is sent)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiAgentsItemsByIdDecide(Params params) {
+        return request("POST", "/v1/ai-agents/items/{id}/decide", params);
+    }
+
+    /**
      * POST /v1/ai/body-from-brief
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12722,6 +15852,16 @@ public abstract class Operations {
      */
     public Object postV1AiFirstLine(Params params) {
         return request("POST", "/v1/ai/first-line", params);
+    }
+
+    /**
+     * POST /v1/ai/flow-builds/{id}/saved - Record which flow a build was saved as (the flow itself is created through /v1/workflows)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AiFlowBuildsByIdSaved(Params params) {
+        return request("POST", "/v1/ai/flow-builds/{id}/saved", params);
     }
 
     /**
@@ -12925,6 +16065,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/analytics/dashboards/import - Create a dashboard and its reports from an exported definition
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AnalyticsDashboardsImport(Params params) {
+        return request("POST", "/v1/analytics/dashboards/import", params);
+    }
+
+    /**
      * POST /v1/analytics/dashboards/owners/batch/update - Reassign dashboards to another member (null = unassigned)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -12952,6 +16102,16 @@ public abstract class Operations {
      */
     public Object postV1AnalyticsPredictionsRun(Params params) {
         return request("POST", "/v1/analytics/predictions/run", params);
+    }
+
+    /**
+     * POST /v1/analytics/records/run - Run a record-source report without saving it: pick columns, filter, order and limit
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AnalyticsRecordsRun(Params params) {
+        return request("POST", "/v1/analytics/records/run", params);
     }
 
     /**
@@ -13035,7 +16195,7 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/assets - Upload a file (multipart field "file"): PNG, JPEG, GIF, WebP up to 5 MB; PDF and MP4 up to 25 MB
+     * POST /v1/assets - Upload a file (multipart field "file", optional fields folderId, filename, access first). Images up to 5 MB; other allowed types (Settings &gt;
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -13105,6 +16265,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/association-labels
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AssociationLabels(Params params) {
+        return request("POST", "/v1/association-labels", params);
+    }
+
+    /**
+     * POST /v1/associations/batch - Up to 100 associations in one call; any failure rolls back all
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AssociationsBatch(Params params) {
+        return request("POST", "/v1/associations/batch", params);
+    }
+
+    /**
      * POST /v1/attributes/computed
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13165,6 +16345,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/auth/handoff - Redeem a single-use agency hand-off token: opens the client workspace in a session bound to it
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AuthHandoff(Params params) {
+        return request("POST", "/v1/auth/handoff", params);
+    }
+
+    /**
      * POST /v1/auth/login
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13215,7 +16405,27 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/batches - Run up to 50 API calls in one request, in order, each with your own credentials and permissions (not atomic)
+     * POST /v1/auth/verify-email - Confirm an email address with the link token
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AuthVerifyEmail(Params params) {
+        return request("POST", "/v1/auth/verify-email", params);
+    }
+
+    /**
+     * POST /v1/auth/waitlist - Join the waitlist while sign-up is invitation-only
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1AuthWaitlist(Params params) {
+        return request("POST", "/v1/auth/waitlist", params);
+    }
+
+    /**
+     * POST /v1/batches - Queue up to 1,000 API calls; they run in order in the background (not atomic). Poll the batch or subscribe to batch.finished
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -13355,6 +16565,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/calendar-feeds - Create a feed; the response holds the only copy of its subscription URL
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CalendarFeeds(Params params) {
+        return request("POST", "/v1/calendar-feeds", params);
+    }
+
+    /**
+     * POST /v1/calendar-feeds/{id}/rotate - New subscription URL; the old one stops working
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CalendarFeedsByIdRotate(Params params) {
+        return request("POST", "/v1/calendar-feeds/{id}/rotate", params);
+    }
+
+    /**
      * POST /v1/calendar/mine - Add an entry to my calendar
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13405,6 +16635,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/campaigns/bulk-update - Move, re-own, archive or tag many campaigns; each one that cannot change is reported
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsBulkUpdate(Params params) {
+        return request("POST", "/v1/campaigns/bulk-update", params);
+    }
+
+    /**
      * POST /v1/campaigns/{id}/ab-rollout
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13422,6 +16662,36 @@ public abstract class Operations {
      */
     public Object postV1CampaignsByIdAiSummary(Params params) {
         return request("POST", "/v1/campaigns/{id}/ai-summary", params);
+    }
+
+    /**
+     * POST /v1/campaigns/{id}/archive
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdArchive(Params params) {
+        return request("POST", "/v1/campaigns/{id}/archive", params);
+    }
+
+    /**
+     * POST /v1/campaigns/{id}/audiences
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdAudiences(Params params) {
+        return request("POST", "/v1/campaigns/{id}/audiences", params);
+    }
+
+    /**
+     * POST /v1/campaigns/{id}/audiences/{audienceId}/clone
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdAudiencesByAudienceIdClone(Params params) {
+        return request("POST", "/v1/campaigns/{id}/audiences/{audienceId}/clone", params);
     }
 
     /**
@@ -13465,6 +16735,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/campaigns/{id}/drafts/decide - Approve (send) or reject the selected drafts
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdDraftsDecide(Params params) {
+        return request("POST", "/v1/campaigns/{id}/drafts/decide", params);
+    }
+
+    /**
      * POST /v1/campaigns/{id}/feedback
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13502,6 +16782,16 @@ public abstract class Operations {
      */
     public Object postV1CampaignsByIdPause(Params params) {
         return request("POST", "/v1/campaigns/{id}/pause", params);
+    }
+
+    /**
+     * POST /v1/campaigns/{id}/postcard/proof - Render both sides for one contact (or sample data) and show the address it would go to
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdPostcardProof(Params params) {
+        return request("POST", "/v1/campaigns/{id}/postcard/proof", params);
     }
 
     /**
@@ -13635,6 +16925,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/campaigns/{id}/unarchive
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdUnarchive(Params params) {
+        return request("POST", "/v1/campaigns/{id}/unarchive", params);
+    }
+
+    /**
      * POST /v1/campaigns/{id}/unschedule
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13642,6 +16942,16 @@ public abstract class Operations {
      */
     public Object postV1CampaignsByIdUnschedule(Params params) {
         return request("POST", "/v1/campaigns/{id}/unschedule", params);
+    }
+
+    /**
+     * POST /v1/campaigns/{id}/variants/grid - Multivariate test: one variant per combination of templates, subjects, from names and preview texts
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CampaignsByIdVariantsGrid(Params params) {
+        return request("POST", "/v1/campaigns/{id}/variants/grid", params);
     }
 
     /**
@@ -13735,13 +17045,23 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/catalog/subscriptions - Notify a profile (catalog.back_in_stock / catalog.price_drop event) when the product changes
+     * POST /v1/catalog/subscriptions - Notify a profile (by id, email or phone; one variant or the whole product; by email, SMS or push) when the product is back in stock or drops
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object postV1CatalogSubscriptions(Params params) {
         return request("POST", "/v1/catalog/subscriptions", params);
+    }
+
+    /**
+     * POST /v1/client-previews/{externalId} - Poll the preview service for a run and save its latest result
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ClientPreviewsByExternalId(Params params) {
+        return request("POST", "/v1/client-previews/{externalId}", params);
     }
 
     /**
@@ -13762,6 +17082,16 @@ public abstract class Operations {
      */
     public Object postV1CommerceActivate(Params params) {
         return request("POST", "/v1/commerce/activate", params);
+    }
+
+    /**
+     * POST /v1/commerce/orders/{id}/ai-summary - A plain-language status of one order (payment, fulfilment, refunds, contents). Needs AI assist switched on; the shipping address and links n
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CommerceOrdersByIdAiSummary(Params params) {
+        return request("POST", "/v1/commerce/orders/{id}/ai-summary", params);
     }
 
     /**
@@ -13845,6 +17175,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/commerce/stores/{storeId}/products - Add a product to this store under its store id
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CommerceStoresByStoreIdProducts(Params params) {
+        return request("POST", "/v1/commerce/stores/{storeId}/products", params);
+    }
+
+    /**
      * POST /v1/commerce/stores/{storeId}/products/{productId}/images
      *
      * @param params path, query, body and idempotency key; may be null
@@ -13852,6 +17192,16 @@ public abstract class Operations {
      */
     public Object postV1CommerceStoresByStoreIdProductsByProductIdImages(Params params) {
         return request("POST", "/v1/commerce/stores/{storeId}/products/{productId}/images", params);
+    }
+
+    /**
+     * POST /v1/commerce/stores/{storeId}/products/{productId}/variants - Add a variant to a store product under its store id
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1CommerceStoresByStoreIdProductsByProductIdVariants(Params params) {
+        return request("POST", "/v1/commerce/stores/{storeId}/products/{productId}/variants", params);
     }
 
     /**
@@ -14135,6 +17485,46 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/deliverability/recommendations/{id}/complete
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1DeliverabilityRecommendationsByIdComplete(Params params) {
+        return request("POST", "/v1/deliverability/recommendations/{id}/complete", params);
+    }
+
+    /**
+     * POST /v1/deliverability/recommendations/{id}/dismiss
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1DeliverabilityRecommendationsByIdDismiss(Params params) {
+        return request("POST", "/v1/deliverability/recommendations/{id}/dismiss", params);
+    }
+
+    /**
+     * POST /v1/deliverability/recommendations/{id}/pause-14-days - Pause sending from the affected mailboxes for 14 days; they resume on their own. Repeating it keeps the first resume date
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1DeliverabilityRecommendationsByIdPause14Days(Params params) {
+        return request("POST", "/v1/deliverability/recommendations/{id}/pause-14-days", params);
+    }
+
+    /**
+     * POST /v1/deliverability/recommendations/{id}/pause-mailboxes - Pause the mailboxes on the affected domain until you resume them. Repeating it changes nothing
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1DeliverabilityRecommendationsByIdPauseMailboxes(Params params) {
+        return request("POST", "/v1/deliverability/recommendations/{id}/pause-mailboxes", params);
+    }
+
+    /**
      * POST /v1/deliverability/rules
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14165,13 +17555,43 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/deliverability/spam-report - Spam test of a draft: score by section (subject, wording, links, formatting) with a fix per finding
+     * POST /v1/deliverability/spam-report - Spam test of a draft: score by section (subject, wording, links, formatting) with a fix per finding. Uses the operator's SpamAssassin (SPAMD
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object postV1DeliverabilitySpamReport(Params params) {
         return request("POST", "/v1/deliverability/spam-report", params);
+    }
+
+    /**
+     * POST /v1/destinations - Add a destination; profiles that opted out of tracking are never forwarded
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1Destinations(Params params) {
+        return request("POST", "/v1/destinations", params);
+    }
+
+    /**
+     * POST /v1/destinations/{id}/test - Send one test event to the destination
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1DestinationsByIdTest(Params params) {
+        return request("POST", "/v1/destinations/{id}/test", params);
+    }
+
+    /**
+     * POST /v1/do-not-contact - Add do-not-contact values; phones block SMS and WhatsApp, LinkedIn URLs block LinkedIn outreach
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1DoNotContact(Params params) {
+        return request("POST", "/v1/do-not-contact", params);
     }
 
     /**
@@ -14185,6 +17605,86 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/embed-api/{token}/ai/brief
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenAiBrief(Params params) {
+        return request("POST", "/v1/embed-api/{token}/ai/brief", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/ai/rewrite
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenAiRewrite(Params params) {
+        return request("POST", "/v1/embed-api/{token}/ai/rewrite", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/ai/subjects
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenAiSubjects(Params params) {
+        return request("POST", "/v1/embed-api/{token}/ai/subjects", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/ai/translate
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenAiTranslate(Params params) {
+        return request("POST", "/v1/embed-api/{token}/ai/translate", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/journey/publish - Publish the saved draft as a new version; body.inFlight chooses stay / migrate / exit for enrollments already inside
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenJourneyPublish(Params params) {
+        return request("POST", "/v1/embed-api/{token}/journey/publish", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/journey/simulate - Dry-run the journey (or an unsaved definition) for sample profiles; nothing is sent or stored
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenJourneySimulate(Params params) {
+        return request("POST", "/v1/embed-api/{token}/journey/simulate", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/template/test-send - Send the template's current version to one of the workspace's seed lists (normal routing, consent and suppression apply)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenTemplateTestSend(Params params) {
+        return request("POST", "/v1/embed-api/{token}/template/test-send", params);
+    }
+
+    /**
+     * POST /v1/embed-api/{token}/template/versions
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedApiByTokenTemplateVersions(Params params) {
+        return request("POST", "/v1/embed-api/{token}/template/versions", params);
+    }
+
+    /**
      * POST /v1/embeds - Signed, expiring link to embed a read-only segment or journey view in another site (only the given origin may frame it)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14192,6 +17692,16 @@ public abstract class Operations {
      */
     public Object postV1Embeds(Params params) {
         return request("POST", "/v1/embeds", params);
+    }
+
+    /**
+     * POST /v1/embeds/editors - Signed, expiring link that embeds the template editor, the journey editor or the deliveries table in another site (only the given origin may
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EmbedsEditors(Params params) {
+        return request("POST", "/v1/embeds/editors", params);
     }
 
     /**
@@ -14245,6 +17755,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/events/export-jobs - Every event matching the GET /v1/events filters as a CSV file, prepared in the background (poll GET /v1/exports/:id for the download link)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1EventsExportJobs(Params params) {
+        return request("POST", "/v1/events/export-jobs", params);
+    }
+
+    /**
      * POST /v1/experiments
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14265,7 +17785,7 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/exports - Export a segment, a list or all profiles to CSV; poll GET /v1/exports/:id for the signed download URL
+     * POST /v1/exports - Export a segment, a list or all profiles to CSV, NDJSON or XLSX, with chosen columns (`attributes.&lt;key&gt;` for a custom property); poll GET /v
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -14282,6 +17802,26 @@ public abstract class Operations {
      */
     public Object postV1ExportsActivity(Params params) {
         return request("POST", "/v1/exports/activity", params);
+    }
+
+    /**
+     * POST /v1/exports/clicks - Every human link click with its message and URL, as CSV (poll GET /v1/exports/:id)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ExportsClicks(Params params) {
+        return request("POST", "/v1/exports/clicks", params);
+    }
+
+    /**
+     * POST /v1/exports/message-events - Every message event (delivered, open, click, bounce ...) with its message, as CSV (poll GET /v1/exports/:id)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ExportsMessageEvents(Params params) {
+        return request("POST", "/v1/exports/message-events", params);
     }
 
     /**
@@ -14415,6 +17955,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/identifier-blocks/check - Whether an email, phone or external id is blocked
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IdentifierBlocksCheck(Params params) {
+        return request("POST", "/v1/identifier-blocks/check", params);
+    }
+
+    /**
+     * POST /v1/identifier-blocks/unblock - Allow a blocked identifier to be added again (admin; suppressions stay)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IdentifierBlocksUnblock(Params params) {
+        return request("POST", "/v1/identifier-blocks/unblock", params);
+    }
+
+    /**
      * POST /v1/identify
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14545,6 +18105,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/imports/url - One-off import of a CSV at an https URL: events, object records or relationships (poll GET /v1/jobs)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ImportsUrl(Params params) {
+        return request("POST", "/v1/imports/url", params);
+    }
+
+    /**
+     * POST /v1/in-app-components - Define a component the app renders natively (its fields and the events it reports)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1InAppComponents(Params params) {
+        return request("POST", "/v1/in-app-components", params);
+    }
+
+    /**
      * POST /v1/in-app-messages - Create an in-app message (draft)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14552,6 +18132,16 @@ public abstract class Operations {
      */
     public Object postV1InAppMessages(Params params) {
         return request("POST", "/v1/in-app-messages", params);
+    }
+
+    /**
+     * POST /v1/in-app-messages/{id}/send - Hold a live in-app message for one contact (shown on their next visit). Needs an idempotency key
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1InAppMessagesByIdSend(Params params) {
+        return request("POST", "/v1/in-app-messages/{id}/send", params);
     }
 
     /**
@@ -14595,6 +18185,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/inbox-messages - Send a transactional message into a contact's in-app inbox. Needs an idempotency key
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1InboxMessages(Params params) {
+        return request("POST", "/v1/inbox-messages", params);
+    }
+
+    /**
      * POST /v1/integrations/connections
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14602,6 +18202,26 @@ public abstract class Operations {
      */
     public Object postV1IntegrationsConnections(Params params) {
         return request("POST", "/v1/integrations/connections", params);
+    }
+
+    /**
+     * POST /v1/integrations/connections/{id}/crm/imports - Import (or re-import) the members of a CRM source; no consent is granted by importing
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IntegrationsConnectionsByIdCrmImports(Params params) {
+        return request("POST", "/v1/integrations/connections/{id}/crm/imports", params);
+    }
+
+    /**
+     * POST /v1/integrations/connections/{id}/crm/users/refresh - Read the CRM users and match new ones to members by email
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IntegrationsConnectionsByIdCrmUsersRefresh(Params params) {
+        return request("POST", "/v1/integrations/connections/{id}/crm/users/refresh", params);
     }
 
     /**
@@ -14695,6 +18315,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/integrations/google/start - Start a Google sign-in that saves a Sheets grant under the named secret; the access token is refreshed automatically
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IntegrationsGoogleStart(Params params) {
+        return request("POST", "/v1/integrations/google/start", params);
+    }
+
+    /**
      * POST /v1/integrations/hubspot/install - Start the HubSpot OAuth install: creates the (disabled) connection and returns the authorize URL
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14702,6 +18332,26 @@ public abstract class Operations {
      */
     public Object postV1IntegrationsHubspotInstall(Params params) {
         return request("POST", "/v1/integrations/hubspot/install", params);
+    }
+
+    /**
+     * POST /v1/integrations/packages - Install one catalogue package version; unsigned, mis-signed or unreviewed packages are refused
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IntegrationsPackages(Params params) {
+        return request("POST", "/v1/integrations/packages", params);
+    }
+
+    /**
+     * POST /v1/integrations/packages/{packageId}/upgrade - Move an installed package (and every connection using it) to another verified version
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1IntegrationsPackagesByPackageIdUpgrade(Params params) {
+        return request("POST", "/v1/integrations/packages/{packageId}/upgrade", params);
     }
 
     /**
@@ -14735,6 +18385,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/invitations/decline - Decline an invitation (the link stops working)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1InvitationsDecline(Params params) {
+        return request("POST", "/v1/invitations/decline", params);
+    }
+
+    /**
+     * POST /v1/landing-page-clusters - Group a pillar page and its supporting pages; missing links between them are listed
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LandingPageClusters(Params params) {
+        return request("POST", "/v1/landing-page-clusters", params);
+    }
+
+    /**
      * POST /v1/landing-page-folders
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14765,7 +18435,7 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/landing-pages
+     * POST /v1/landing-pages - Create a page; `template_id` starts it from a preset when `doc` is left out
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -14812,6 +18482,16 @@ public abstract class Operations {
      */
     public Object postV1LandingPagesByIdAbVariants(Params params) {
         return request("POST", "/v1/landing-pages/{id}/ab/variants", params);
+    }
+
+    /**
+     * POST /v1/landing-pages/{id}/archive - Hide the page from the list and stop serving it
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LandingPagesByIdArchive(Params params) {
+        return request("POST", "/v1/landing-pages/{id}/archive", params);
     }
 
     /**
@@ -14895,6 +18575,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/landing-pages/{id}/unarchive
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LandingPagesByIdUnarchive(Params params) {
+        return request("POST", "/v1/landing-pages/{id}/unarchive", params);
+    }
+
+    /**
      * POST /v1/landing-pages/{id}/unpublish
      *
      * @param params path, query, body and idempotency key; may be null
@@ -14925,7 +18615,67 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/leads/companies/{id}/link
+     * POST /v1/leads/companies/batch - Create, edit, delete and link companies in one call (up to 500 operations); failures are reported per item
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesBatch(Params params) {
+        return request("POST", "/v1/leads/companies/batch", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/bulk-delete - Delete up to 500 companies; do-not-contact blocks on their domains stay
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesBulkDelete(Params params) {
+        return request("POST", "/v1/leads/companies/bulk-delete", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/{id}/contacts - Link several contacts at once, with optional link fields
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesByIdContacts(Params params) {
+        return request("POST", "/v1/leads/companies/{id}/contacts", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/{id}/crm/connect - Find the company in the CRM and link it without creating anything; empty fields and the owner are filled from the CRM
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesByIdCrmConnect(Params params) {
+        return request("POST", "/v1/leads/companies/{id}/crm/connect", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/{id}/crm/push - Create or update the company in the CRM (found by link, domain or name) and associate its contacts already in the CRM
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesByIdCrmPush(Params params) {
+        return request("POST", "/v1/leads/companies/{id}/crm/push", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/{id}/files - Upload a file (multipart field "file": PDF, image, text, CSV, Office or ZIP, up to 25 MB)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesByIdFiles(Params params) {
+        return request("POST", "/v1/leads/companies/{id}/files", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/{id}/link - Link a contact (or change its link: primary flag, job title, role). A contact can be linked to several companies; one is primary
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -14952,6 +18702,16 @@ public abstract class Operations {
      */
     public Object postV1LeadsCompaniesByIdNotes(Params params) {
         return request("POST", "/v1/leads/companies/{id}/notes", params);
+    }
+
+    /**
+     * POST /v1/leads/companies/{id}/score - Add (or with a negative delta, take) account score points
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesByIdScore(Params params) {
+        return request("POST", "/v1/leads/companies/{id}/score", params);
     }
 
     /**
@@ -14995,6 +18755,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/leads/companies/import-mapped - Import parsed CSV rows with a column mapping (built-in and custom company fields); existing domains are skipped or updated
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompaniesImportMapped(Params params) {
+        return request("POST", "/v1/leads/companies/import-mapped", params);
+    }
+
+    /**
      * POST /v1/leads/companies/query - Filter companies with a typed where / orderBy / limit / offset (fields are an allowlist; read "fields" in the result)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -15012,6 +18782,16 @@ public abstract class Operations {
      */
     public Object postV1LeadsCompaniesUnifyAccounts(Params params) {
         return request("POST", "/v1/leads/companies/unify-accounts", params);
+    }
+
+    /**
+     * POST /v1/leads/company-fields
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LeadsCompanyFields(Params params) {
+        return request("POST", "/v1/leads/company-fields", params);
     }
 
     /**
@@ -15325,6 +19105,116 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/looker/data
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LookerData(Params params) {
+        return request("POST", "/v1/looker/data", params);
+    }
+
+    /**
+     * POST /v1/looker/schema
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LookerSchema(Params params) {
+        return request("POST", "/v1/looker/schema", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyPrograms(Params params) {
+        return request("POST", "/v1/loyalty/programs", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/adjust - Add or remove points by hand (send `key` to make a retry count once)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdAdjust(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/adjust", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/passes - Issue (or fetch) a member card or reward pass and its install links
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdPasses(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/passes", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/passes/{serial}/replace-link - Revoke a pass's install link and return a new one (a card already added to a wallet keeps working)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdPassesBySerialReplaceLink(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/passes/{serial}/replace-link", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/redeem - Spend points on a reward; returns the coupon code
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdRedeem(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/redeem", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/rewards - A reward costs points and hands out a code from a coupon pool
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdRewards(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/rewards", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/rules - Earn points on an event (orders are `purchase`)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdRules(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/rules", params);
+    }
+
+    /**
+     * POST /v1/loyalty/programs/{id}/tiers
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyProgramsByIdTiers(Params params) {
+        return request("POST", "/v1/loyalty/programs/{id}/tiers", params);
+    }
+
+    /**
+     * POST /v1/loyalty/vouchers/{id}/use - Mark a reward code used (also redeems the coupon code)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1LoyaltyVouchersByIdUse(Params params) {
+        return request("POST", "/v1/loyalty/vouchers/{id}/use", params);
+    }
+
+    /**
      * POST /v1/markdown/preview - Render Markdown the way a markdown template compiles it (live editor preview)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -15545,13 +19435,23 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/metrics/ingest - A custom sender reports an open or click for a delivery id; feeds the same reports as tracked opens and clicks
+     * POST /v1/metrics/ingest - A custom sender reports an outcome for a delivery id (delivered, opened, clicked, converted, bounced, spammed, dropped, deferred, failed); i
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object postV1MetricsIngest(Params params) {
         return request("POST", "/v1/metrics/ingest", params);
+    }
+
+    /**
+     * POST /v1/me/verify-email/resend - Mail a new confirmation link
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1MeVerifyEmailResend(Params params) {
+        return request("POST", "/v1/me/verify-email/resend", params);
     }
 
     /**
@@ -15682,6 +19582,26 @@ public abstract class Operations {
      */
     public Object postV1NewsletterEngagementSurveys(Params params) {
         return request("POST", "/v1/newsletter/engagement/surveys", params);
+    }
+
+    /**
+     * POST /v1/newsletter/engagement/surveys/{id}/campaign - Draft an email campaign to the survey's list, with a new template that links each recipient to the survey (signed per reader)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1NewsletterEngagementSurveysByIdCampaign(Params params) {
+        return request("POST", "/v1/newsletter/engagement/surveys/{id}/campaign", params);
+    }
+
+    /**
+     * POST /v1/newsletter/engagement/surveys/{id}/duplicate - Copy a survey (questions and settings, no answers)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1NewsletterEngagementSurveysByIdDuplicate(Params params) {
+        return request("POST", "/v1/newsletter/engagement/surveys/{id}/duplicate", params);
     }
 
     /**
@@ -15995,6 +19915,26 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/notifications/read
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1NotificationsRead(Params params) {
+        return request("POST", "/v1/notifications/read", params);
+    }
+
+    /**
+     * POST /v1/notifications/read-all
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1NotificationsReadAll(Params params) {
+        return request("POST", "/v1/notifications/read-all", params);
+    }
+
+    /**
      * POST /v1/oauth/authorize - The user approved: returns the redirect URL carrying the single-use code (PKCE S256 required)
      *
      * @param params path, query, body and idempotency key; may be null
@@ -16075,6 +20015,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/objects/relationships/import - Link people (by externalId, email or phone) to object records (by type and externalId); a bad row is reported, the rest land
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ObjectsRelationshipsImport(Params params) {
+        return request("POST", "/v1/objects/relationships/import", params);
+    }
+
+    /**
      * POST /v1/object-types
      *
      * @param params path, query, body and idempotency key; may be null
@@ -16092,6 +20042,26 @@ public abstract class Operations {
      */
     public Object postV1ObjectTypesByIdDraftPublish(Params params) {
         return request("POST", "/v1/object-types/{id}/draft/publish", params);
+    }
+
+    /**
+     * POST /v1/object-types/{id}/share - Publish this workspace's object type to the organization (re-publishing bumps the version)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ObjectTypesByIdShare(Params params) {
+        return request("POST", "/v1/object-types/{id}/share", params);
+    }
+
+    /**
+     * POST /v1/operator/waitlist/{id}/approve - Let this address sign up, and email them the sign-up link
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OperatorWaitlistByIdApprove(Params params) {
+        return request("POST", "/v1/operator/waitlist/{id}/approve", params);
     }
 
     /**
@@ -16142,6 +20112,26 @@ public abstract class Operations {
      */
     public Object postV1OutboundBlocklistImport(Params params) {
         return request("POST", "/v1/outbound/blocklist/import", params);
+    }
+
+    /**
+     * POST /v1/outbound/booking-pages
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundBookingPages(Params params) {
+        return request("POST", "/v1/outbound/booking-pages", params);
+    }
+
+    /**
+     * POST /v1/outbound/bookings/{id}/cancel
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundBookingsByIdCancel(Params params) {
+        return request("POST", "/v1/outbound/bookings/{id}/cancel", params);
     }
 
     /**
@@ -16535,6 +20525,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/outbound/proposals/{id}/decide - Approve (optionally edited) or reject; approving sends through the normal path, consent and suppression rechecked
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundProposalsByIdDecide(Params params) {
+        return request("POST", "/v1/outbound/proposals/{id}/decide", params);
+    }
+
+    /**
      * POST /v1/outbound/prospects/adopt
      *
      * @param params path, query, body and idempotency key; may be null
@@ -16665,13 +20665,33 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/outbound/sequences/{id}/enroll
+     * POST /v1/outbound/sequences/{id}/enroll - Enroll chosen prospects and / or every member of a list (listId: all of its members)
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
      */
     public Object postV1OutboundSequencesByIdEnroll(Params params) {
         return request("POST", "/v1/outbound/sequences/{id}/enroll", params);
+    }
+
+    /**
+     * POST /v1/outbound/sequences/{id}/enroll-accounts - ABM: enroll the contacts of these companies, grouped per account (per-account cap and stop rule from the sequence settings)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundSequencesByIdEnrollAccounts(Params params) {
+        return request("POST", "/v1/outbound/sequences/{id}/enroll-accounts", params);
+    }
+
+    /**
+     * POST /v1/outbound/sequences/{id}/export-leads - CSV of the sequence's leads with their fields, variables and per-lead stats, built in the background; optional email when ready
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundSequencesByIdExportLeads(Params params) {
+        return request("POST", "/v1/outbound/sequences/{id}/export-leads", params);
     }
 
     /**
@@ -16855,6 +20875,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/outbound/tasks/bulk - Assign, snooze, complete or skip many tasks at once
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundTasksBulk(Params params) {
+        return request("POST", "/v1/outbound/tasks/bulk", params);
+    }
+
+    /**
      * POST /v1/outbound/tasks/{id}/assign
      *
      * @param params path, query, body and idempotency key; may be null
@@ -16862,6 +20892,16 @@ public abstract class Operations {
      */
     public Object postV1OutboundTasksByIdAssign(Params params) {
         return request("POST", "/v1/outbound/tasks/{id}/assign", params);
+    }
+
+    /**
+     * POST /v1/outbound/tasks/{id}/call - Click-to-call (or voicemail drop) from a call task through the workspace's Twilio; the call is logged on the task when Twilio reports back
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundTasksByIdCall(Params params) {
+        return request("POST", "/v1/outbound/tasks/{id}/call", params);
     }
 
     /**
@@ -16902,6 +20942,46 @@ public abstract class Operations {
      */
     public Object postV1OutboundTasksSearch(Params params) {
         return request("POST", "/v1/outbound/tasks/search", params);
+    }
+
+    /**
+     * POST /v1/outbound/task-types
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundTaskTypes(Params params) {
+        return request("POST", "/v1/outbound/task-types", params);
+    }
+
+    /**
+     * POST /v1/outbound/voice-clips - Upload an audio clip (multipart field "file"): MP3, M4A, OGG, WAV or WebM up to 5 MB
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1OutboundVoiceClips(Params params) {
+        return request("POST", "/v1/outbound/voice-clips", params);
+    }
+
+    /**
+     * POST /v1/page-sites - Create a website: pages that share a header, footer and menus
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1PageSites(Params params) {
+        return request("POST", "/v1/page-sites", params);
+    }
+
+    /**
+     * POST /v1/page-sites/{id}/domain/verify - Queue a DNS check (status `checking` until it lands); once verified the domain is added to the proxy routing file (TLS is issued automatical
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1PageSitesByIdDomainVerify(Params params) {
+        return request("POST", "/v1/page-sites/{id}/domain/verify", params);
     }
 
     /**
@@ -16965,6 +21045,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/profile-filters
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ProfileFilters(Params params) {
+        return request("POST", "/v1/profile-filters", params);
+    }
+
+    /**
      * POST /v1/profiles
      *
      * @param params path, query, body and idempotency key; may be null
@@ -16995,6 +21085,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/profiles/{id}/ai-commerce-summary - A plain-language read of one customer's buying behaviour (frequency, spend, top products, carts), from their order figures only. Needs AI as
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ProfilesByIdAiCommerceSummary(Params params) {
+        return request("POST", "/v1/profiles/{id}/ai-commerce-summary", params);
+    }
+
+    /**
      * POST /v1/profiles/{id}/archive - Archive a contact: kept with history, never sent to or counted until restored
      *
      * @param params path, query, body and idempotency key; may be null
@@ -17012,6 +21112,26 @@ public abstract class Operations {
      */
     public Object postV1ProfilesByIdConsent(Params params) {
         return request("POST", "/v1/profiles/{id}/consent", params);
+    }
+
+    /**
+     * POST /v1/profiles/{id}/crm/find - Find this contact in the CRM by email and link it (nothing is created)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ProfilesByIdCrmFind(Params params) {
+        return request("POST", "/v1/profiles/{id}/crm/find", params);
+    }
+
+    /**
+     * POST /v1/profiles/{id}/crm/push - Push this contact to the CRM now
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ProfilesByIdCrmPush(Params params) {
+        return request("POST", "/v1/profiles/{id}/crm/push", params);
     }
 
     /**
@@ -17042,6 +21162,16 @@ public abstract class Operations {
      */
     public Object postV1ProfilesByIdDsarExport(Params params) {
         return request("POST", "/v1/profiles/{id}/dsar/export", params);
+    }
+
+    /**
+     * POST /v1/profiles/{id}/files - Attach a file (multipart field "file"; the asset library's types and limits apply)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ProfilesByIdFiles(Params params) {
+        return request("POST", "/v1/profiles/{id}/files", params);
     }
 
     /**
@@ -17102,6 +21232,16 @@ public abstract class Operations {
      */
     public Object postV1ProfilesByIdSuppress(Params params) {
         return request("POST", "/v1/profiles/{id}/suppress", params);
+    }
+
+    /**
+     * POST /v1/profiles/{id}/suppress-delete - Suppress every address of a contact, delete the contact, and block its identifiers so no import, API call or event can re-create it
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ProfilesByIdSuppressDelete(Params params) {
+        return request("POST", "/v1/profiles/{id}/suppress-delete", params);
     }
 
     /**
@@ -17202,6 +21342,26 @@ public abstract class Operations {
      */
     public Object postV1ProgramsByIdAssets(Params params) {
         return request("POST", "/v1/programs/{id}/assets", params);
+    }
+
+    /**
+     * POST /v1/push/live - Start a live notification for one contact (order tracking, a match score...). Push consent applies to marketing ones; suppression always app
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1PushLive(Params params) {
+        return request("POST", "/v1/push/live", params);
+    }
+
+    /**
+     * POST /v1/push/live/{id}/end - End the live notification (optionally with a final state and when to dismiss it)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1PushLiveByIdEnd(Params params) {
+        return request("POST", "/v1/push/live/{id}/end", params);
     }
 
     /**
@@ -17312,6 +21472,16 @@ public abstract class Operations {
      */
     public Object postV1ReportingValues(Params params) {
         return request("POST", "/v1/reporting/values", params);
+    }
+
+    /**
+     * POST /v1/review-feeds/google/replace - Revoke every review feed link made so far and return new ones
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1ReviewFeedsGoogleReplace(Params params) {
+        return request("POST", "/v1/review-feeds/google/replace", params);
     }
 
     /**
@@ -17485,6 +21655,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/segments/{id}/export-jobs - Every current member as a CSV file, prepared in the background (poll GET /v1/exports/:id for the download link)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SegmentsByIdExportJobs(Params params) {
+        return request("POST", "/v1/segments/{id}/export-jobs", params);
+    }
+
+    /**
      * POST /v1/segments/{id}/match-runs - Match everyone against the segment now and keep the result as a run
      *
      * @param params path, query, body and idempotency key; may be null
@@ -17492,6 +21672,16 @@ public abstract class Operations {
      */
     public Object postV1SegmentsByIdMatchRuns(Params params) {
         return request("POST", "/v1/segments/{id}/match-runs", params);
+    }
+
+    /**
+     * POST /v1/segments/{id}/members - Add existing contacts to a hand-picked segment by profile id or email (grants no consent)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SegmentsByIdMembers(Params params) {
+        return request("POST", "/v1/segments/{id}/members", params);
     }
 
     /**
@@ -17625,6 +21815,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/shared-object-schemas/{id}/install - Create or update the object type here from a shared schema (fields are merged, none removed)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SharedObjectSchemasByIdInstall(Params params) {
+        return request("POST", "/v1/shared-object-schemas/{id}/install", params);
+    }
+
+    /**
      * POST /v1/signals - Record an outside signal for a person (job change, funding...). It arrives as the event external_signal, so journeys and sequences can start
      *
      * @param params path, query, body and idempotency key; may be null
@@ -17632,6 +21832,16 @@ public abstract class Operations {
      */
     public Object postV1Signals(Params params) {
         return request("POST", "/v1/signals", params);
+    }
+
+    /**
+     * POST /v1/site-messages - Create a content-only on-site message (draft)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SiteMessages(Params params) {
+        return request("POST", "/v1/site-messages", params);
     }
 
     /**
@@ -17652,6 +21862,46 @@ public abstract class Operations {
      */
     public Object postV1SitesByIdVerify(Params params) {
         return request("POST", "/v1/sites/{id}/verify", params);
+    }
+
+    /**
+     * POST /v1/slack/installs - Install with your own Slack app's bot token (stored encrypted)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SlackInstalls(Params params) {
+        return request("POST", "/v1/slack/installs", params);
+    }
+
+    /**
+     * POST /v1/slack/oauth/start - Start "Add to Slack"; returns Slack's authorize URL
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SlackOauthStart(Params params) {
+        return request("POST", "/v1/slack/oauth/start", params);
+    }
+
+    /**
+     * POST /v1/slack/templates - Create a Slack message template (text plus optional Block Kit blocks)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SlackTemplates(Params params) {
+        return request("POST", "/v1/slack/templates", params);
+    }
+
+    /**
+     * POST /v1/slack/test - Post a test message to a channel. Needs an idempotency key
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SlackTest(Params params) {
+        return request("POST", "/v1/slack/test", params);
     }
 
     /**
@@ -17845,6 +22095,66 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/social/accounts - Connect with a pasted access token (stored encrypted); connects every page/account it can post as unless externalId is given
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SocialAccounts(Params params) {
+        return request("POST", "/v1/social/accounts", params);
+    }
+
+    /**
+     * POST /v1/social/oauth/{platform}/start - Start sign-in with the network; returns its authorize URL
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SocialOauthByPlatformStart(Params params) {
+        return request("POST", "/v1/social/oauth/{platform}/start", params);
+    }
+
+    /**
+     * POST /v1/social/oauth/pending/{id} - Connect the picked pages and accounts from a sign-in; the others are forgotten
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SocialOauthPendingById(Params params) {
+        return request("POST", "/v1/social/oauth/pending/{id}", params);
+    }
+
+    /**
+     * POST /v1/social/posts - Compose a post for one or more accounts: a draft, now, or scheduled. Needs an idempotency key
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SocialPosts(Params params) {
+        return request("POST", "/v1/social/posts", params);
+    }
+
+    /**
+     * POST /v1/social/posts/{id}/cancel - Cancel a draft, scheduled or failed post
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SocialPostsByIdCancel(Params params) {
+        return request("POST", "/v1/social/posts/{id}/cancel", params);
+    }
+
+    /**
+     * POST /v1/social/posts/{id}/replies - Reply to a comment as the page or account. Needs an idempotency key
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SocialPostsByIdReplies(Params params) {
+        return request("POST", "/v1/social/posts/{id}/replies", params);
+    }
+
+    /**
      * POST /v1/soft-bounce-allowlist - Exempt an address or domain from automatic soft-bounce suppression
      *
      * @param params path, query, body and idempotency key; may be null
@@ -17992,6 +22302,36 @@ public abstract class Operations {
      */
     public Object postV1SponsorsNetworkMarketplaceByIdDecision(Params params) {
         return request("POST", "/v1/sponsors/network/marketplace/{id}/decision", params);
+    }
+
+    /**
+     * POST /v1/sql-sources - Add a scheduled SELECT; only SELECT statements are accepted
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SqlSources(Params params) {
+        return request("POST", "/v1/sql-sources", params);
+    }
+
+    /**
+     * POST /v1/sql-sources/{id}/preview - Test the connection and query: up to 20 rows, nothing imported
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SqlSourcesByIdPreview(Params params) {
+        return request("POST", "/v1/sql-sources/{id}/preview", params);
+    }
+
+    /**
+     * POST /v1/sql-sources/{id}/run - Run the pull now (in the background)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1SqlSourcesByIdRun(Params params) {
+        return request("POST", "/v1/sql-sources/{id}/run", params);
     }
 
     /**
@@ -18145,6 +22485,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/templates/bulk-update - Move, tag, re-brand, set the topic of or archive up to 100 templates; each is applied or refused on its own
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1TemplatesBulkUpdate(Params params) {
+        return request("POST", "/v1/templates/bulk-update", params);
+    }
+
+    /**
      * POST /v1/templates/{id}/archive - Blocked (412) while a scheduled campaign or live workflow uses it, unless force=true
      *
      * @param params path, query, body and idempotency key; may be null
@@ -18175,7 +22525,7 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/templates/{id}/convert - One-way: copy a block template into a new HTML template
+     * POST /v1/templates/{id}/convert - One-way copy into the other format: a block template into a new HTML template, an HTML template into a new drag-and-drop template
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -18305,7 +22655,7 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/templates/github-sync/pull - Read files from the repository: new templates and changed template versions; journeys only ever update drafts, never a published version
+     * POST /v1/templates/github-sync/pull - Read files from the repository: new templates and changed template versions, journey drafts (never a published version) and segments (create
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -18315,7 +22665,7 @@ public abstract class Operations {
     }
 
     /**
-     * POST /v1/templates/github-sync/push - Write every template and journey to the repository as one JSON file each (unchanged files are skipped)
+     * POST /v1/templates/github-sync/push - Write every template, journey and segment to the repository as one JSON file each (unchanged files are skipped)
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -18422,6 +22772,16 @@ public abstract class Operations {
      */
     public Object postV1TransactionalDefinitionsByIdSend(Params params) {
         return request("POST", "/v1/transactional/definitions/{id}/send", params);
+    }
+
+    /**
+     * POST /v1/transactional/metadata-fields
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1TransactionalMetadataFields(Params params) {
+        return request("POST", "/v1/transactional/metadata-fields", params);
     }
 
     /**
@@ -18615,6 +22975,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/webhooks/journal/snapshots - Write the current state of listed contacts into the journal as crm.snapshot entries, or freeze a segment and queue its entries for the worke
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WebhooksJournalSnapshots(Params params) {
+        return request("POST", "/v1/webhooks/journal/snapshots", params);
+    }
+
+    /**
      * POST /v1/webhook-templates
      *
      * @param params path, query, body and idempotency key; may be null
@@ -18642,6 +23012,46 @@ public abstract class Operations {
      */
     public Object postV1WebhookTemplatesTest(Params params) {
         return request("POST", "/v1/webhook-templates/test", params);
+    }
+
+    /**
+     * POST /v1/whatsapp/flows - Create a Flow (draft) from its Flow JSON
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WhatsappFlows(Params params) {
+        return request("POST", "/v1/whatsapp/flows", params);
+    }
+
+    /**
+     * POST /v1/whatsapp/flows/{id}/deprecate - Deprecate a published Flow at Meta (it can no longer be sent)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WhatsappFlowsByIdDeprecate(Params params) {
+        return request("POST", "/v1/whatsapp/flows/{id}/deprecate", params);
+    }
+
+    /**
+     * POST /v1/whatsapp/flows/{id}/publish - Upload the Flow JSON to Meta and publish it (validation errors are returned on the flow)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WhatsappFlowsByIdPublish(Params params) {
+        return request("POST", "/v1/whatsapp/flows/{id}/publish", params);
+    }
+
+    /**
+     * POST /v1/whatsapp/flows/{id}/run - Send a published Flow to one contact. WhatsApp consent (marketing) and suppression apply; outside the 24-hour window the flow template is us
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WhatsappFlowsByIdRun(Params params) {
+        return request("POST", "/v1/whatsapp/flows/{id}/run", params);
     }
 
     /**
@@ -18712,6 +23122,16 @@ public abstract class Operations {
      */
     public Object postV1WorkflowActionsCallbacksComplete(Params params) {
         return request("POST", "/v1/workflow-actions/callbacks/complete", params);
+    }
+
+    /**
+     * POST /v1/workflow-custom-types - Register an action type (runs a call template or code action) or a trigger type (fires on an event)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WorkflowCustomTypes(Params params) {
+        return request("POST", "/v1/workflow-custom-types", params);
     }
 
     /**
@@ -18842,6 +23262,16 @@ public abstract class Operations {
      */
     public Object postV1WorkflowsByIdEnrollmentsExitAll(Params params) {
         return request("POST", "/v1/workflows/{id}/enrollments/exit-all", params);
+    }
+
+    /**
+     * POST /v1/workflows/{id}/enroll-object-segment - Enroll the people linked to each object in an object segment (the object rides along as the trigger event)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WorkflowsByIdEnrollObjectSegment(Params params) {
+        return request("POST", "/v1/workflows/{id}/enroll-object-segment", params);
     }
 
     /**
@@ -19005,6 +23435,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /v1/workspaces/current/reset - Owner only: delete the chosen data (contacts, events, messages, campaigns, journeys) and keep settings, members, keys, connections, template
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postV1WorkspacesCurrentReset(Params params) {
+        return request("POST", "/v1/workspaces/current/reset", params);
+    }
+
+    /**
      * POST /v1/workspaces/current/schedule-for-removal - Owner only: stop sending now and erase the workspace after the grace period
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19042,6 +23482,36 @@ public abstract class Operations {
      */
     public Object postV2Entity(Params params) {
         return request("POST", "/v2/entity", params);
+    }
+
+    /**
+     * POST /wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postWalletAppleByWsV1DevicesByDeviceRegistrationsByPassTypeBySerial(Params params) {
+        return request("POST", "/wallet/apple/{ws}/v1/devices/{device}/registrations/{passType}/{serial}", params);
+    }
+
+    /**
+     * POST /wallet/apple/{ws}/v1/log
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postWalletAppleByWsV1Log(Params params) {
+        return request("POST", "/wallet/apple/{ws}/v1/log", params);
+    }
+
+    /**
+     * POST /webhooks/ads/meta/leadgen - Meta leadgen delivery: queues the matching lead form syncs at once
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postWebhooksAdsMetaLeadgen(Params params) {
+        return request("POST", "/webhooks/ads/meta/leadgen", params);
     }
 
     /**
@@ -19085,6 +23555,16 @@ public abstract class Operations {
     }
 
     /**
+     * POST /webhooks/bounce/{workspaceId}/{connectionId}/lettermint - Lettermint webhook (hard/soft bounce, spam complaint, delivered); X-Lettermint-Signature t=&lt;unix&gt;,v1=HMAC-SHA256 of "&lt;t&gt;.&lt;body&gt;" with the co
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postWebhooksBounceByWorkspaceIdByConnectionIdLettermint(Params params) {
+        return request("POST", "/webhooks/bounce/{workspaceId}/{connectionId}/lettermint", params);
+    }
+
+    /**
      * POST /webhooks/bounce/{workspaceId}/{connectionId}/sparkpost - SparkPost events receiver; authenticate with the X-MessageSystems-Webhook-Token header (or basic auth) = connection webhook secret
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19122,6 +23602,16 @@ public abstract class Operations {
      */
     public Object postWebhooksIntegrationsByWorkspaceIdByConnectionId(Params params) {
         return request("POST", "/webhooks/integrations/{workspaceId}/{connectionId}", params);
+    }
+
+    /**
+     * POST /webhooks/outbound-voice/{workspaceId}/{taskId} - Twilio Voice status / dial / answering-machine callback: plays the voicemail clip or bridges the rep, and logs the call on the task
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object postWebhooksOutboundVoiceByWorkspaceIdByTaskId(Params params) {
+        return request("POST", "/webhooks/outbound-voice/{workspaceId}/{taskId}", params);
     }
 
     /**
@@ -19275,6 +23765,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/associations/{fromType}/{fromId}/{toType}/{toId} - Associate two records; without a label the pair's default label is used (or "related")
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1AssociationsByFromTypeByFromIdByToTypeByToId(Params params) {
+        return request("PUT", "/v1/associations/{fromType}/{fromId}/{toType}/{toId}", params);
+    }
+
+    /**
      * PUT /v1/attributes/fields/{key}/lists/{listId} - Show this field for people on this list
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19312,6 +23812,16 @@ public abstract class Operations {
      */
     public Object putV1BrandKitsByIdVoice(Params params) {
         return request("PUT", "/v1/brand-kits/{id}/voice", params);
+    }
+
+    /**
+     * PUT /v1/budgets/{id}/folder
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1BudgetsByIdFolder(Params params) {
+        return request("PUT", "/v1/budgets/{id}/folder", params);
     }
 
     /**
@@ -19362,6 +23872,26 @@ public abstract class Operations {
      */
     public Object putV1CampaignsByIdFolder(Params params) {
         return request("PUT", "/v1/campaigns/{id}/folder", params);
+    }
+
+    /**
+     * PUT /v1/campaigns/{id}/messages/{messageId}/variants/{key}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1CampaignsByIdMessagesByMessageIdVariantsByKey(Params params) {
+        return request("PUT", "/v1/campaigns/{id}/messages/{messageId}/variants/{key}", params);
+    }
+
+    /**
+     * PUT /v1/campaigns/{id}/postcard - Save the postcard design (6x4 or 9x6, HTML front and back with merge tags)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1CampaignsByIdPostcard(Params params) {
+        return request("PUT", "/v1/campaigns/{id}/postcard", params);
     }
 
     /**
@@ -19475,6 +24005,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/commerce/stores/{storeId}/orders/{id} - Create or replace the order under the store's own order id
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1CommerceStoresByStoreIdOrdersById(Params params) {
+        return request("PUT", "/v1/commerce/stores/{storeId}/orders/{id}", params);
+    }
+
+    /**
      * PUT /v1/commerce/stores/{storeId}/products/{productId} - Create or replace a product in this store
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19502,6 +24042,16 @@ public abstract class Operations {
      */
     public Object putV1CommerceStoresByStoreIdProductsByProductIdVariantsByVariantId(Params params) {
         return request("PUT", "/v1/commerce/stores/{storeId}/products/{productId}/variants/{variantId}", params);
+    }
+
+    /**
+     * PUT /v1/compliance/export-retention
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1ComplianceExportRetention(Params params) {
+        return request("PUT", "/v1/compliance/export-retention", params);
     }
 
     /**
@@ -19542,6 +24092,16 @@ public abstract class Operations {
      */
     public Object putV1ComplianceTrashRetention(Params params) {
         return request("PUT", "/v1/compliance/trash-retention", params);
+    }
+
+    /**
+     * PUT /v1/compliance/unconfirmed-purge
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1ComplianceUnconfirmedPurge(Params params) {
+        return request("PUT", "/v1/compliance/unconfirmed-purge", params);
     }
 
     /**
@@ -19615,6 +24175,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/embed-api/{token}/journey - Save the journey draft (publish with POST .../journey/publish)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1EmbedApiByTokenJourney(Params params) {
+        return request("PUT", "/v1/embed-api/{token}/journey", params);
+    }
+
+    /**
      * PUT /v1/event-definitions/{name}/properties/{prop} - Add or change one declared property type
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19622,6 +24192,16 @@ public abstract class Operations {
      */
     public Object putV1EventDefinitionsByNamePropertiesByProp(Params params) {
         return request("PUT", "/v1/event-definitions/{name}/properties/{prop}", params);
+    }
+
+    /**
+     * PUT /v1/events/settings - Turn server-side event ingest on or off (callers get 412 while off, nothing is dropped silently), or set the primary-key field
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1EventsSettings(Params params) {
+        return request("PUT", "/v1/events/settings", params);
     }
 
     /**
@@ -19655,6 +24235,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/integrations/connections/{id}/crm/users
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1IntegrationsConnectionsByIdCrmUsers(Params params) {
+        return request("PUT", "/v1/integrations/connections/{id}/crm/users", params);
+    }
+
+    /**
      * PUT /v1/integrations/connections/{id}/declarative/push - Turn on sending changed profiles to this CRM/helpdesk (off by default), optionally for one segment
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19675,6 +24265,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/integrations/crm-settings - Set how many days the CRM sync log keeps rows (7 to 3650)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1IntegrationsCrmSettings(Params params) {
+        return request("PUT", "/v1/integrations/crm-settings", params);
+    }
+
+    /**
      * PUT /v1/integrations/secrets/{name} - Create or replace a secret
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19682,6 +24282,16 @@ public abstract class Operations {
      */
     public Object putV1IntegrationsSecretsByName(Params params) {
         return request("PUT", "/v1/integrations/secrets/{name}", params);
+    }
+
+    /**
+     * PUT /v1/landing-page-clusters/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1LandingPageClustersById(Params params) {
+        return request("PUT", "/v1/landing-page-clusters/{id}", params);
     }
 
     /**
@@ -19722,6 +24332,26 @@ public abstract class Operations {
      */
     public Object putV1LandingPagesByIdLanguagesPrimary(Params params) {
         return request("PUT", "/v1/landing-pages/{id}/languages/primary", params);
+    }
+
+    /**
+     * PUT /v1/landing-pages/{id}/seo/keyword - Set the focus keyword the audit checks
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1LandingPagesByIdSeoKeyword(Params params) {
+        return request("PUT", "/v1/landing-pages/{id}/seo/keyword", params);
+    }
+
+    /**
+     * PUT /v1/landing-pages/{id}/site - Put the page in a website (null takes it out)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1LandingPagesByIdSite(Params params) {
+        return request("PUT", "/v1/landing-pages/{id}/site", params);
     }
 
     /**
@@ -19785,6 +24415,26 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/loyalty/hub
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1LoyaltyHub(Params params) {
+        return request("PUT", "/v1/loyalty/hub", params);
+    }
+
+    /**
+     * PUT /v1/loyalty/programs/{id}/wallet - Set up Apple and Google Wallet passes (secrets are write-only and stored sealed)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1LoyaltyProgramsByIdWallet(Params params) {
+        return request("PUT", "/v1/loyalty/programs/{id}/wallet", params);
+    }
+
+    /**
      * PUT /v1/mapped-metrics/{role}
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19792,6 +24442,16 @@ public abstract class Operations {
      */
     public Object putV1MappedMetricsByRole(Params params) {
         return request("PUT", "/v1/mapped-metrics/{role}", params);
+    }
+
+    /**
+     * PUT /v1/marketing-events/apps - Set the event-details URL template of an event app (by name)
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1MarketingEventsApps(Params params) {
+        return request("PUT", "/v1/marketing-events/apps", params);
     }
 
     /**
@@ -19895,7 +24555,7 @@ public abstract class Operations {
     }
 
     /**
-     * PUT /v1/notes/{id}
+     * PUT /v1/notes/{id} - Edit a contact or company note
      *
      * @param params path, query, body and idempotency key; may be null
      * @return the parsed JSON answer
@@ -19935,6 +24595,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/outbound/booking-pages/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1OutboundBookingPagesById(Params params) {
+        return request("PUT", "/v1/outbound/booking-pages/{id}", params);
+    }
+
+    /**
      * PUT /v1/outbound/call-dispositions
      *
      * @param params path, query, body and idempotency key; may be null
@@ -19962,6 +24632,16 @@ public abstract class Operations {
      */
     public Object putV1OutboundInboxByIdDraftsByDraftId(Params params) {
         return request("PUT", "/v1/outbound/inbox/{id}/drafts/{draftId}", params);
+    }
+
+    /**
+     * PUT /v1/outbound/inbox-routing/{channel} - Default inbox and default assignee for new replies on a channel
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1OutboundInboxRoutingByChannel(Params params) {
+        return request("PUT", "/v1/outbound/inbox-routing/{channel}", params);
     }
 
     /**
@@ -20045,6 +24725,66 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/outbound/task-types/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1OutboundTaskTypesById(Params params) {
+        return request("PUT", "/v1/outbound/task-types/{id}", params);
+    }
+
+    /**
+     * PUT /v1/outbound/telephony
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1OutboundTelephony(Params params) {
+        return request("PUT", "/v1/outbound/telephony", params);
+    }
+
+    /**
+     * PUT /v1/outbound/telephony/my-phone
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1OutboundTelephonyMyPhone(Params params) {
+        return request("PUT", "/v1/outbound/telephony/my-phone", params);
+    }
+
+    /**
+     * PUT /v1/page-sites/{id}/domain - Set the custom domain; publish the returned DNS records, then verify
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1PageSitesByIdDomain(Params params) {
+        return request("PUT", "/v1/page-sites/{id}/domain", params);
+    }
+
+    /**
+     * PUT /v1/postal-addresses/{id}/groups
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1PostalAddressesByIdGroups(Params params) {
+        return request("PUT", "/v1/postal-addresses/{id}/groups", params);
+    }
+
+    /**
+     * PUT /v1/profile-filters/{id}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1ProfileFiltersById(Params params) {
+        return request("PUT", "/v1/profile-filters/{id}", params);
+    }
+
+    /**
      * PUT /v1/profiles/{id}/contact-prefs
      *
      * @param params path, query, body and idempotency key; may be null
@@ -20082,6 +24822,16 @@ public abstract class Operations {
      */
     public Object putV1RegistrarDomainsByIdForwarding(Params params) {
         return request("PUT", "/v1/registrar/domains/{id}/forwarding", params);
+    }
+
+    /**
+     * PUT /v1/review-settings
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1ReviewSettings(Params params) {
+        return request("PUT", "/v1/review-settings", params);
     }
 
     /**
@@ -20125,6 +24875,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/segments - Create or update by name: the live segment with this name (case-insensitive) gets these rules, else a new one is made
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1Segments(Params params) {
+        return request("PUT", "/v1/segments", params);
+    }
+
+    /**
      * PUT /v1/segments/settings - Change spend tiers or the geocoding provider; segments that use them recalculate
      *
      * @param params path, query, body and idempotency key; may be null
@@ -20135,6 +24895,26 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/senders/{id}/signing/pgp - Sign this sender's email with PGP/MIME: an armored private key with a user id for its address, and its passphrase
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1SendersByIdSigningPgp(Params params) {
+        return request("PUT", "/v1/senders/{id}/signing/pgp", params);
+    }
+
+    /**
+     * PUT /v1/senders/{id}/signing/smime - Sign this sender's email with S/MIME: PEM certificate issued for its address, its unencrypted private key, optional chain
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1SendersByIdSigningSmime(Params params) {
+        return request("PUT", "/v1/senders/{id}/signing/smime", params);
+    }
+
+    /**
      * PUT /v1/send-options/{sourceKind}/{sourceId} - Replace the attachments (base64, stored in object storage) and allowlisted headers of a source; reserved headers are rejected
      *
      * @param params path, query, body and idempotency key; may be null
@@ -20142,6 +24922,16 @@ public abstract class Operations {
      */
     public Object putV1SendOptionsBySourceKindBySourceId(Params params) {
         return request("PUT", "/v1/send-options/{sourceKind}/{sourceId}", params);
+    }
+
+    /**
+     * PUT /v1/send-options/{sourceKind}/{sourceId}/behaviour - Strict Liquid (null = default strict) and send-from-contact-owner for a campaign, journey or sequence; other send options are untouched
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1SendOptionsBySourceKindBySourceIdBehaviour(Params params) {
+        return request("PUT", "/v1/send-options/{sourceKind}/{sourceId}/behaviour", params);
     }
 
     /**
@@ -20202,6 +24992,16 @@ public abstract class Operations {
      */
     public Object putV1SitesByIdAllowlist(Params params) {
         return request("PUT", "/v1/sites/{id}/allowlist", params);
+    }
+
+    /**
+     * PUT /v1/slack/templates/{id} - Edit a Slack message template
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1SlackTemplatesById(Params params) {
+        return request("PUT", "/v1/slack/templates/{id}", params);
     }
 
     /**
@@ -20295,6 +25095,16 @@ public abstract class Operations {
     }
 
     /**
+     * PUT /v1/standard-fields/{key}
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1StandardFieldsByKey(Params params) {
+        return request("PUT", "/v1/standard-fields/{key}", params);
+    }
+
+    /**
      * PUT /v1/tags/resources/{resourceType}/{resourceId} - Replace the resource tag set
      *
      * @param params path, query, body and idempotency key; may be null
@@ -20362,6 +25172,16 @@ public abstract class Operations {
      */
     public Object putV1UserGroupsById(Params params) {
         return request("PUT", "/v1/user-groups/{id}", params);
+    }
+
+    /**
+     * PUT /v1/user-groups/{id}/access - Lists the group's members may reach (null = the group does not limit lists) and caps such as sends per day
+     *
+     * @param params path, query, body and idempotency key; may be null
+     * @return the parsed JSON answer
+     */
+    public Object putV1UserGroupsByIdAccess(Params params) {
+        return request("PUT", "/v1/user-groups/{id}/access", params);
     }
 
     /**
